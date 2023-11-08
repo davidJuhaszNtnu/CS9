@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 4906819885089413864
+  m_GuidHigh: 8171054147027068848
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5707816255603607861
+      m_GuidHigh: 14265650175865916544
+    m_SerializedTextureGuid:
+      m_GuidLow: 13412850542909296384
+      m_GuidHigh: 13093042450685695611
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Point1
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5260516264648251427
+      m_GuidHigh: 2250887383707946174
+    m_SerializedTextureGuid:
+      m_GuidLow: 9693146494868684810
+      m_GuidHigh: 8951346966422857546
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Point2
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5454395861941594789
+      m_GuidHigh: 17418268317006940812
+    m_SerializedTextureGuid:
+      m_GuidLow: 757747645901749618
+      m_GuidHigh: 1332007644146716360
+    m_Size: {x: 0.25, y: 0.249183}
+    m_SpecifySize: 1
+    m_Name: factory1
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5111833959675974480
+      m_GuidHigh: 11809059962486480823
+    m_SerializedTextureGuid:
+      m_GuidLow: 14876755765618552928
+      m_GuidHigh: 9109097268253670328
+    m_Size: {x: 0.25, y: 0.252443}
+    m_SpecifySize: 1
+    m_Name: factory2
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4834359903937233901
+      m_GuidHigh: 9743941604197012378
+    m_SerializedTextureGuid:
+      m_GuidLow: 3676306382227325117
+      m_GuidHigh: 325123923169975259
+    m_Size: {x: 0.25, y: 0.24356914}
+    m_SpecifySize: 1
+    m_Name: factory3
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5143450906601390332
+      m_GuidHigh: 131517691785574555
+    m_SerializedTextureGuid:
+      m_GuidLow: 4329189926709237282
+      m_GuidHigh: 16463784996621898888
+    m_Size: {x: 0.25, y: 0.24560703}
+    m_SpecifySize: 1
+    m_Name: factory4
+    m_Texture: {fileID: 0}
