@@ -45,7 +45,7 @@ MonoBehaviour:
       m_GuidHigh: 1332007644146716360
     m_Size: {x: 0.25, y: 0.249183}
     m_SpecifySize: 1
-    m_Name: factory1
+    m_Name: Industry1
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5111833959675974480
@@ -55,7 +55,7 @@ MonoBehaviour:
       m_GuidHigh: 9109097268253670328
     m_Size: {x: 0.25, y: 0.252443}
     m_SpecifySize: 1
-    m_Name: factory2
+    m_Name: Industry2
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 4834359903937233901
@@ -65,7 +65,7 @@ MonoBehaviour:
       m_GuidHigh: 325123923169975259
     m_Size: {x: 0.25, y: 0.24356914}
     m_SpecifySize: 1
-    m_Name: factory3
+    m_Name: Industry3
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5143450906601390332
@@ -75,5 +75,5 @@ MonoBehaviour:
       m_GuidHigh: 16463784996621898888
     m_Size: {x: 0.25, y: 0.24560703}
     m_SpecifySize: 1
-    m_Name: factory4
+    m_Name: Industry4
     m_Texture: {fileID: 0}

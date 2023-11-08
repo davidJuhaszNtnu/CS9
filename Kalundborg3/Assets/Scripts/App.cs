@@ -20,7 +20,7 @@ public class App : MonoBehaviour
     Vector3 firstPoint, secondPoint, direction;
     public float scale;
 
-    public GameObject environment, gameController, floor, appPanel, calibrationPanel, welcomePanel, infographics, app, tutorial;
+    public GameObject environment, gameController, floor, appPanel, calibrationPanel, welcomePanel, infographics, app, tutorial, infographicsController;
     public Sprite firstPoint_image, secondPoint_image;
     public Image calibration_image;
 
@@ -49,13 +49,13 @@ public class App : MonoBehaviour
 
         //-----
 
-        firstPoint = new Vector3(0f, 0f, 0f);
-        secondPoint = new Vector3(0f, 0f, 0.2f);
-        gotBoth = true;
+        // firstPoint = new Vector3(0f, 0f, 0f);
+        // secondPoint = new Vector3(0f, 0f, 0.2f);
+        // gotBoth = true;
 
-        infographics.SetActive(false);
-        welcomePanel.SetActive(false);
-        calibrate();
+        // infographics.SetActive(false);
+        // welcomePanel.SetActive(false);
+        // calibrate();
     }
 
     void Update()
@@ -131,6 +131,8 @@ public class App : MonoBehaviour
         infographics.SetActive(false);
         calibrationPanel.SetActive(true);
         calibration_image.sprite = firstPoint_image;
+        foreach(GameObject industry_model in infographicsController.GetComponent<infographicsController>().industry_models)
+            industry_model.SetActive(false);
     }
 
     public void start_bttn(){

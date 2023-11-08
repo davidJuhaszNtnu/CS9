@@ -47,8 +47,8 @@ public class InfoCardsPanel : MonoBehaviour
         title.text = name;
 
         if(index !=0 ){
-            clean_amount_text.text = Math.Round(clean, 2).ToString() + " m3";
-            waste_amount_text.text = Math.Round(waste, 2).ToString() + " m3";
+            clean_amount_text.text = Math.Round(clean, 2).ToString() + " m<sup>3</sup>";
+            waste_amount_text.text = Math.Round(waste, 2).ToString() + " m<sup>3</sup>";
             question_button.gameObject.SetActive(true);
         }else{
             question_button.gameObject.SetActive(false);

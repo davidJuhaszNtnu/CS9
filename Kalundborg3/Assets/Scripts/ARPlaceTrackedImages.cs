@@ -71,7 +71,7 @@ public class ARPlaceTrackedImages : MonoBehaviour
         foreach (var trackedImage in eventArgs.updated) 
         {
             if(infographics.activeSelf){
-                if(trackedImage.referenceImage.name == "factory1" || trackedImage.referenceImage.name == "factory2" || trackedImage.referenceImage.name == "factory3" || trackedImage.referenceImage.name == "factory4")
+                if(trackedImage.referenceImage.name == "Industry1" || trackedImage.referenceImage.name == "Industry2" || trackedImage.referenceImage.name == "Industry3" || trackedImage.referenceImage.name == "Industry4")
                     _instantiatedPrefabs[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
                 else _instantiatedPrefabs[trackedImage.referenceImage.name].SetActive(false);
             }else if(trackedImage.referenceImage.name == "Point1" || trackedImage.referenceImage.name == "Point2"){
