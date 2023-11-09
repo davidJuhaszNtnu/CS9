@@ -74,8 +74,8 @@ public class infographicsController : MonoBehaviour
     public void exit_paramater_bttn(){
         foreach(GameObject industry_model in industry_models){
             if(industry_model.activeSelf){
-                industry_model.transform.GetChild(0).gameObject.SetActive(false);
-                industry_model.transform.GetChild(1).gameObject.SetActive(true);
+                industry_model.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<PanelAnimation>().restart();
+                industry_model.SetActive(false);
             }
         }
     }
