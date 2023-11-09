@@ -1904,7 +1904,7 @@ GameObject:
   - component: {fileID: 2071861934017991902}
   m_Layer: 0
   m_Name: Industry1
-  m_TagString: factory1
+  m_TagString: industry1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

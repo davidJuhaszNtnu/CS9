@@ -6,6 +6,10 @@ TagManager:
   tags:
   - point2
   - point1
+  - industry1
+  - industry2
+  - industry3
+  - industry4
   layers:
   - Default
   - TransparentFX

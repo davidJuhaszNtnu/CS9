@@ -18,10 +18,10 @@ public class PanelAnimation : MonoBehaviour
         animate_backward = false;
         selected = false;
         start = transform.localPosition;
-        end = new Vector3(0f, start.y, start.z/2f);
+        end = new Vector3(0f, start.y, 1f);
         parent = transform.parent;
         t = 0;
-        dt = 0.01f;
+        dt = 0.03f;
     }
 
     void Update()
@@ -51,6 +51,15 @@ public class PanelAnimation : MonoBehaviour
         if(t <= 1f)
             t += dt;
         else{
+            bool someIsSelected = false;
+            foreach(Transform child in parent){
+                if(child.gameObject.GetComponent<PanelAnimation>().selected)
+                    someIsSelected = true;
+            }
+            foreach(Transform child in parent){
+                if(child.name == "Panel2" && !someIsSelected)
+                        child.transform.SetAsLastSibling();
+            }
             animate_backward = false;
             foreach(Transform child in parent)
                 child.transform.GetComponent<Button>().interactable = true;
@@ -64,10 +73,6 @@ public class PanelAnimation : MonoBehaviour
                 child.transform.GetComponent<Button>().interactable = false;
             selected = false;
             animate_backward = true;
-            foreach(Transform child in parent){
-                if(child.name == "Panel2")
-                    child.transform.SetAsLastSibling();
-            }
             t = 0f;
         }else{
             foreach(Transform child in parent)
@@ -85,6 +90,17 @@ public class PanelAnimation : MonoBehaviour
                         child.transform.GetComponent<PanelAnimation>().t = 0f;
                     }
                 }
+            }
+        }
+    }
+
+    public void restart(){
+        foreach(Transform child in parent){
+            if(child.GetComponent<PanelAnimation>().selected){
+                child.transform.GetComponent<Button>().interactable = false;
+                child.transform.GetComponent<PanelAnimation>().selected = false;
+                child.transform.GetComponent<PanelAnimation>().animate_backward = true;
+                child.transform.GetComponent<PanelAnimation>().t = 0f;
             }
         }
     }
