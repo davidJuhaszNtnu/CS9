@@ -64,7 +64,11 @@ public class infographicsController : MonoBehaviour
     }
 
     public void restart_bttn(){
-        
+        foreach(GameObject industry_model in industry_models){
+            if(industry_model.activeSelf){
+                industry_model.transform.GetChild(1).GetComponent<ParamaterGameController>().restart();
+            }
+        }
     }
 
     public void info_bttn(){

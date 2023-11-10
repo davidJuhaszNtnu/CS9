@@ -10,13 +10,7 @@ public class ParamaterGameController : MonoBehaviour
 
     void Start()
     {
-        sliders[0].value = 0f;
-        sliders[1].value = 0f;
-        sliders[2].value = 0f;
-        sliders[3].value = 0f;
-
-        for(int i = 0; i < 4; i++)
-            updateCubes(i);
+        restart();
     }
 
     public void slider1_change(){
@@ -40,5 +34,15 @@ public class ParamaterGameController : MonoBehaviour
         Vector3 oldPosition = cubes[i].transform.localPosition;
         cubes[i].transform.localScale = new Vector3(oldScale.x, sliders[i].value, oldScale.z);
         cubes[i].transform.localPosition = new Vector3(oldPosition.x, sliders[i].value/2f, oldPosition.z);
+    }
+
+    public void restart(){
+        sliders[0].value = 0f;
+        sliders[1].value = 0f;
+        sliders[2].value = 0f;
+        sliders[3].value = 0f;
+
+        for(int i = 0; i < 4; i++)
+            updateCubes(i);
     }
 }
