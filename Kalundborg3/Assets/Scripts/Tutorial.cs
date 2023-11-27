@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     public GameObject gameController, arrow_distInd_prefab, arrow_ind_prefab, distribution_industry, app, industry1, tutorial;
-    public GameObject welcomePanel, distributionIndustryPanel, industryPanel, addNewButtonTutorial, placementOfNewIndustryTutorial,
+    public GameObject welcomePanel, welcomePanel2, distributionIndustryPanel, industryPanel, addNewButtonTutorial, placementOfNewIndustryTutorial,
                         newIndustryInfoPanel, makeConnectionButtonTutorial, connectionPanel, connectionAnimationPanel;
     GameObject arrow_distInd, arrow_ind;
 
@@ -19,6 +19,7 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         welcomePanel.SetActive(true);
+        welcomePanel2.SetActive(false);
         distributionIndustryPanel.SetActive(false);
         industryPanel.SetActive(false);
         addNewButtonTutorial.SetActive(false);
@@ -34,6 +35,11 @@ public class Tutorial : MonoBehaviour
 
     public void next_welcomePanel_bttn(){
         welcomePanel.SetActive(false);
+        welcomePanel2.SetActive(true);
+    }
+
+    public void next_welcomePanel2_bttn(){
+        welcomePanel2.SetActive(false);
         arrow_distInd = Instantiate(arrow_distInd_prefab);
         arrow_distInd.transform.SetParent(distribution_industry.transform, true);
         arrow_distInd.transform.localPosition = new Vector3(0f, 0.9f, 0f);

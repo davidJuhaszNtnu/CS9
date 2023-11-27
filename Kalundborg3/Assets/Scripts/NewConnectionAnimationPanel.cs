@@ -41,7 +41,7 @@ public class NewConnectionAnimationPanel : MonoBehaviour
             t_in += dt_in;
             in_value = in_from_value + (in_to_value - in_from_value) * t_in;
             in_value_rectangle = in_from_value_rectangle + (in_to_value_rectangle - in_from_value_rectangle) * t_in;
-            reduction_in_text.text = Math.Round(in_value, 2).ToString() + "%";
+            reduction_in_text.text = Math.Round(in_value * 100, 2).ToString() + "%";
             if(in_value_rectangle >= 1f)
                 in_value_rectangle = 1f;
             rectangle_in.transform.GetComponent<RectTransform>().anchorMax = new Vector2(1, in_value_rectangle);
@@ -58,7 +58,7 @@ public class NewConnectionAnimationPanel : MonoBehaviour
             t_out += dt_out;
             out_value = out_from_value + (out_to_value - out_from_value) * t_out;
             out_value_rectangle = out_from_value_rectangle + (out_to_value_rectangle - out_from_value_rectangle) * t_out;
-            reduction_out_text.text = Math.Round(out_value, 2).ToString() + "%";
+            reduction_out_text.text = Math.Round(out_value * 100, 2).ToString() + "%";
             if(out_value_rectangle >= 1f)
                 out_value_rectangle = 1f;
             rectangle_out.transform.GetComponent<RectTransform>().anchorMax = new Vector2(1, out_value_rectangle);
@@ -97,8 +97,8 @@ public class NewConnectionAnimationPanel : MonoBehaviour
         dt_in = 0.04f;
         dt_out = 0.04f;
 
-        reduction_in_text.text = Math.Round(in_from_value, 2).ToString() + "%";
-        reduction_out_text.text = Math.Round(out_from_value, 2).ToString() + "%";
+        reduction_in_text.text = Math.Round(in_from_value * 100, 2).ToString() + "%";
+        reduction_out_text.text = Math.Round(out_from_value * 100, 2).ToString() + "%";
         // max reduction = 1, current reduction = ?
         in_from_value_rectangle = in_from / gameController.GetComponent<gameController>().max_reduction_clean;
         out_from_value_rectangle = out_from / gameController.GetComponent<gameController>().max_reduction_waste;
@@ -138,7 +138,7 @@ public class NewConnectionAnimationPanel : MonoBehaviour
         
         if(gameController.GetComponent<gameController>().tutorialOn){
             tutorial.GetComponent<Tutorial>().connectionAnimationPanel.SetActive(true);
-            tutorial.GetComponent<Tutorial>().connectionAnimationPanel.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "You achieved a waste water reduction of " + Math.Round(out_to_value, 2).ToString() + 
+            tutorial.GetComponent<Tutorial>().connectionAnimationPanel.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "You achieved a waste water reduction of " + Math.Round(out_to_value * 100, 2).ToString() + 
             "%. This means that so much waste water is now recycled in our symbiosis. This is good news for the environment.\n\n" + 
             "Can you guess how to achieve a reduction in the amount of clean water the system recieves from the distribution industry?\n\n" +
             "You win the escape room if the demands for the reductions are met and all the added new industries are receiving enough clean water. Good luck!\n\n" +

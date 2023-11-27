@@ -120,34 +120,34 @@ public class gameController : MonoBehaviour
         exit_button.gameObject.SetActive(true);
 
         //existing indutries
-        s[1] = 0.7f;
-        w[1] = 0.5f;
-        p[1] = 6f;
+        s[1] = 0.9f;
+        w[1] = 0.2f;
+        p[1] = 5f;
 
-        s[2] = 0.4f;
-        w[2] = 0.5f;
+        s[2] = 0.6f;
+        w[2] = 0.4f;
         p[2] = 10f;
 
-        s[3] = 0.5f;
-        w[3] = 0.4f;
-        p[3] = 8f;
+        s[3] = 0.4f;
+        w[3] = 0.6f;
+        p[3] = 15f;
 
-        s[4] = 0.7f;
-        w[4] = 0.5f;
-        p[4] = 5f;
+        s[4] = 0.2f;
+        w[4] = 0.9f;
+        p[4] = 20f;
 
         //new industries
         s[5] = 0.8f;
-        w[5] = 0.2f;
-        p[5] = 1f;
+        w[5] = 0.5f;
+        p[5] = 4f;
 
-        s[6] = 0.2f;
-        w[6] = 0.4f;
-        p[6] = 1.5f;
+        s[6] = 0.6f;
+        w[6] = 0.6f;
+        p[6] = 8f;
 
-        s[7] = 0.5f;
-        w[7] = 0.1f;
-        p[7] = 0.5f;
+        s[7] = 0.4f;
+        w[7] = 0.8f;
+        p[7] = 12f;
 
         for (int i = 1; i < industry_count; i++){
             s_old[i] = s[i];
@@ -181,8 +181,8 @@ public class gameController : MonoBehaviour
         clean_water_reduction = 1 - total_in / clean_total_start;
         waste_water_reduction = 1 - total_out / waste_total_start;
 
-        max_reduction_clean_text.text = Math.Round(max_reduction_clean, 2).ToString() + "%";
-        max_reduction_waste_text.text = Math.Round(max_reduction_waste, 2).ToString() + "%";
+        max_reduction_clean_text.text = Math.Round(max_reduction_clean * 100, 2).ToString() + "%";
+        max_reduction_waste_text.text = Math.Round(max_reduction_waste * 100, 2).ToString() + "%";
 
         update_pillars();
 
@@ -608,8 +608,8 @@ public class gameController : MonoBehaviour
 
     void update_pillars(){
 
-        clean_water_reduction_text.text = Math.Round(clean_water_reduction, 2).ToString() + "%";
-        waste_water_reduction_text.text = Math.Round(waste_water_reduction, 2).ToString() + "%";
+        clean_water_reduction_text.text = Math.Round(clean_water_reduction * 100, 2).ToString() + "%";
+        waste_water_reduction_text.text = Math.Round(waste_water_reduction * 100, 2).ToString() + "%";
 
         // max reduction = 1, new reduction = ?
         float new_height_clean = clean_water_reduction / max_reduction_clean;
