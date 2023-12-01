@@ -209,12 +209,14 @@ public class gameController : MonoBehaviour
         if(tutorialOn){
             replay_button.interactable = false;
             question_button.interactable = false;
+            exit_button.interactable = false;
             // if(tutorial.GetComponent<Tutorial>().industry_bool)
             //     add_new_button.interactable = false;
             // else add_new_button.interactable = true;
         }else{
             replay_button.interactable = true;
             question_button.interactable = true;
+            exit_button.interactable = true;
         }
 
         if(Input.GetMouseButtonDown(0) && allowed_to_view_info && !tutorialOn){
