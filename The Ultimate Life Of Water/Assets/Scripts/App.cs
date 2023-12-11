@@ -50,13 +50,13 @@ public class App : MonoBehaviour
 
         //-----
 
-        firstPoint = new Vector3(0f, 0f, 0f);
-        secondPoint = new Vector3(0f, 0f, 0.2f);
-        gotBoth = true;
+        // firstPoint = new Vector3(0f, 0f, 0f);
+        // secondPoint = new Vector3(0f, 0f, 0.2f);
+        // gotBoth = true;
 
-        infographics.SetActive(false);
-        welcomePanel.SetActive(false);
-        calibrate();
+        // infographics.SetActive(false);
+        // welcomePanel.SetActive(false);
+        // calibrate();
     }
 
     void Update()
