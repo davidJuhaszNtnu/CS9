@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     public GameObject gameController, arrow_distInd_prefab, arrow_ind_prefab, distribution_industry, app, industry1, tutorial;
-    public GameObject welcomePanel, welcomePanel2, distributionIndustryPanel, industryPanel, addNewButtonTutorial, placementOfNewIndustryTutorial,
+    public GameObject welcomePanel, welcomePanel2, distributionIndustryPanel, industryPanel1, industryPanel2, howtoplayPanel, addNewButtonTutorial, placementOfNewIndustryTutorial,
                         newIndustryInfoPanel, makeConnectionButtonTutorial, connectionPanel, connectionAnimationPanel;
     GameObject arrow_distInd, arrow_ind;
 
@@ -21,7 +21,9 @@ public class Tutorial : MonoBehaviour
         welcomePanel.SetActive(true);
         welcomePanel2.SetActive(false);
         distributionIndustryPanel.SetActive(false);
-        industryPanel.SetActive(false);
+        industryPanel1.SetActive(false);
+        industryPanel2.SetActive(false);
+        howtoplayPanel.SetActive(false);
         addNewButtonTutorial.SetActive(false);
         newIndustryInfoPanel.SetActive(false);
         makeConnectionButtonTutorial.SetActive(false);
@@ -60,7 +62,17 @@ public class Tutorial : MonoBehaviour
     }
 
     public void next_industryPanel_bttn(){
-        industryPanel.SetActive(false);
+        industryPanel1.SetActive(false);
+        industryPanel2.SetActive(true);
+    }
+
+    public void next_industryPanel2_bttn(){
+        industryPanel2.SetActive(false);
+        howtoplayPanel.SetActive(true);
+    }
+
+    public void next_howtoplayPanel_bttn(){
+        howtoplayPanel.SetActive(false);
         addNewButtonTutorial.SetActive(true);
         gameController.transform.GetComponent<gameController>().add_new_button.interactable = true;
     }
@@ -101,8 +113,10 @@ public class Tutorial : MonoBehaviour
                 }
                 if(hit.collider.name == "Industry 1" && industry_bool){
                     interactable = false;
-                    if(!industry_secondTime)
-                        industryPanel.SetActive(true);
+                    if(!industry_secondTime){
+                        industryPanel1.SetActive(true);
+                        industryPanel2.SetActive(false);
+                    }
                     Destroy(arrow_ind);
                     industry_bool = false;
                 }
