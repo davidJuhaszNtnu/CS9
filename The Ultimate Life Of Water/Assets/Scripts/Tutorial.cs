@@ -7,9 +7,9 @@ public class Tutorial : MonoBehaviour
     public GameObject gameController, arrow_distInd_prefab, arrow_ind_prefab, distribution_industry, app, industry1, tutorial;
     public GameObject welcomePanel, welcomePanel2, distributionIndustryPanel, industryPanel1, industryPanel2, howtoplayPanel, addNewButtonTutorial, placementOfNewIndustryTutorial,
                         newIndustryInfoPanel, makeConnectionButtonTutorial, connectionPanel, connectionAnimationPanel;
-    GameObject arrow_distInd, arrow_ind;
+    public GameObject arrow_distInd, arrow_ind;
 
-    private bool interactable, distributionIndustry_bool, industry_bool;
+    public bool interactable, distributionIndustry_bool, industry_bool;
     public bool industry_secondTime;
 
     Ray ray;
@@ -77,18 +77,18 @@ public class Tutorial : MonoBehaviour
         gameController.transform.GetComponent<gameController>().add_new_button.interactable = true;
     }
 
-    public void next_newIndustryInfoPanel_bttn(){
-        newIndustryInfoPanel.SetActive(false);
-        makeConnectionButtonTutorial.SetActive(true);
-        arrow_ind = Instantiate(arrow_ind_prefab);
-        arrow_ind.transform.SetParent(industry1.transform, true);
-        arrow_ind.transform.localPosition = new Vector3(0f, 1.2f, 0f);
-        arrow_ind.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
-        arrow_ind.transform.localScale *= app.GetComponent<App>().scale*2f;
-        industry_bool = true;
-        interactable = true;
-        industry_secondTime = true;
-    }
+    // public void next_newIndustryInfoPanel_bttn(){
+    //     newIndustryInfoPanel.SetActive(false);
+    //     makeConnectionButtonTutorial.SetActive(true);
+    //     arrow_ind = Instantiate(arrow_ind_prefab);
+    //     arrow_ind.transform.SetParent(industry1.transform, true);
+    //     arrow_ind.transform.localPosition = new Vector3(0f, 1.2f, 0f);
+    //     arrow_ind.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+    //     arrow_ind.transform.localScale *= app.GetComponent<App>().scale*2f;
+    //     industry_bool = true;
+    //     interactable = true;
+    //     industry_secondTime = true;
+    // }
 
     public void next_connectionPanel_bttn(){
         connectionPanel.SetActive(false);

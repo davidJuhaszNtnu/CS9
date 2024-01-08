@@ -315,9 +315,9 @@ public class gameController : MonoBehaviour
         allowed_to_view_info = false;
         mainPanel.SetActive(false);
         addNewIndustryPanel.SetActive(true);
-        if(tutorialOn){
-            tutorial.GetComponent<Tutorial>().addNewButtonTutorial.SetActive(false);
-        }
+        // if(tutorialOn){
+        //     tutorial.GetComponent<Tutorial>().addNewButtonTutorial.SetActive(false);
+        // }
     }
 
     public void make_connection_bttn(){

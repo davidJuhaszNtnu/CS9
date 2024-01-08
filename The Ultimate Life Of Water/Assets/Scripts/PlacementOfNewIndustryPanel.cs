@@ -9,7 +9,7 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
     Ray ray;
     RaycastHit hit;
     public GameObject placementMarker_prefab, floor, gameController, addNewIndustryPanel, app, tutorial;
-    public Button confirm_button, back_button;
+    public Button confirm_button, back_button, question_button, ok_button;
 
     private GameObject placementMarker;
     public GameObject[] industry_cards;
@@ -82,7 +82,7 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
         // }
 
         if(Input.GetMouseButtonDown(0)){
-            if (!RectTransformUtility.RectangleContainsScreenPoint( confirm_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(back_button.GetComponent<RectTransform>(), Input.mousePosition)){
+            if (!RectTransformUtility.RectangleContainsScreenPoint( confirm_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(back_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(question_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(ok_button.GetComponent<RectTransform>(), Input.mousePosition)){
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit)){
                     if(hit.collider.name=="Floor"){
@@ -143,10 +143,21 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
             gameController.GetComponent<gameController>().allowed_to_view_info = true;
 
             if(gameController.GetComponent<gameController>().tutorialOn){
-                tutorial.GetComponent<Tutorial>().placementOfNewIndustryTutorial.SetActive(false);
-                tutorial.GetComponent<Tutorial>().newIndustryInfoPanel.SetActive(true);
-                tutorial.GetComponent<Tutorial>().addNewButtonTutorial.SetActive(false);
+                // tutorial.GetComponent<Tutorial>().placementOfNewIndustryTutorial.SetActive(false);
+                // tutorial.GetComponent<Tutorial>().newIndustryInfoPanel.SetActive(true);
+                // tutorial.GetComponent<Tutorial>().addNewButtonTutorial.SetActive(false);
                 gameController.transform.GetComponent<gameController>().add_new_button.interactable = false;
+                // newIndustryInfoPanel.SetActive(false);
+                tutorial.GetComponent<Tutorial>().makeConnectionButtonTutorial.SetActive(true);
+                tutorial.GetComponent<Tutorial>().arrow_ind = Instantiate(tutorial.GetComponent<Tutorial>().arrow_ind_prefab);
+                tutorial.GetComponent<Tutorial>().arrow_ind.transform.SetParent(tutorial.GetComponent<Tutorial>().industry1.transform, true);
+                tutorial.GetComponent<Tutorial>().arrow_ind.transform.localPosition = new Vector3(0f, 1.2f, 0f);
+                tutorial.GetComponent<Tutorial>().arrow_ind.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+                tutorial.GetComponent<Tutorial>().arrow_ind.transform.localScale *= app.GetComponent<App>().scale*2f;
+                tutorial.GetComponent<Tutorial>().industry_bool = true;
+                tutorial.GetComponent<Tutorial>().interactable = true;
+                tutorial.GetComponent<Tutorial>().industry_secondTime = true;
+                tutorial.GetComponent<Tutorial>().addNewButtonTutorial.SetActive(false);
             }
 
             placed = false;
@@ -165,10 +176,15 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
     }
 
     public void question_bttn(){
-        gameController.GetComponent<gameController>().questionPlacementOfNewIndustryPanel.SetActive(true);
+        // gameController.GetComponent<gameController>().questionPlacementOfNewIndustryPanel.SetActive(true);
+        gameController.GetComponent<gameController>().questionMainPanel.SetActive(true);
+        gameController.GetComponent<gameController>().allowed_to_view_info = false;
+        confirm_button.interactable = false;
+        back_button.interactable = false;
     }
 
     public void ok_questioPanel_bttn(){
-        gameController.GetComponent<gameController>().questionPlacementOfNewIndustryPanel.SetActive(false);
+        // gameController.GetComponent<gameController>().questionPlacementOfNewIndustryPanel.SetActive(false);
+        gameController.GetComponent<gameController>().questionMainPanel.SetActive(false);
     }
 }

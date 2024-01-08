@@ -21,8 +21,8 @@ public class AddNewIndustryPanel : MonoBehaviour
     }
 
     public void back_bttn(){
-        if(gameController.GetComponent<gameController>().tutorialOn)
-            addNewButtonTutorial.SetActive(true);
+        // if(gameController.GetComponent<gameController>().tutorialOn)
+        //     addNewButtonTutorial.SetActive(true);
         gameController.GetComponent<gameController>().addNewIndustryPanel.SetActive(false);
         gameController.GetComponent<gameController>().mainPanel.SetActive(true);
         gameController.GetComponent<gameController>().allowed_to_view_info = true;
@@ -32,11 +32,11 @@ public class AddNewIndustryPanel : MonoBehaviour
         gameController.GetComponent<gameController>().new_industry_index = center_to_compare.GetComponent<SnapToCenter>().indexMin + gameController.GetComponent<gameController>().existing_count + 1;
         gameController.GetComponent<gameController>().addNewIndustryPanel.SetActive(false);
         gameController.GetComponent<gameController>().placementOfNewIndustryPanel.SetActive(true);
-        if(gameController.GetComponent<gameController>().tutorialOn){
-            tutorial.GetComponent<Tutorial>().placementOfNewIndustryTutorial.SetActive(true);
-        }else{
-            tutorial.GetComponent<Tutorial>().placementOfNewIndustryTutorial.SetActive(false);
-        }
+        // if(gameController.GetComponent<gameController>().tutorialOn){
+        //     tutorial.GetComponent<Tutorial>().placementOfNewIndustryTutorial.SetActive(true);
+        // }else{
+        //     tutorial.GetComponent<Tutorial>().placementOfNewIndustryTutorial.SetActive(false);
+        // }
 
         // Debug.Log(gameController.GetComponent<gameController>().new_industry_index);
     }
