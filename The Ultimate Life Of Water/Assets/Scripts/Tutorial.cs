@@ -6,7 +6,7 @@ public class Tutorial : MonoBehaviour
 {
     public GameObject gameController, arrow_distInd_prefab, arrow_ind_prefab, distribution_industry, app, industry1, tutorial;
     public GameObject welcomePanel, welcomePanel2, distributionIndustryPanel, industryPanel1, industryPanel2, howtoplayPanel, addNewButtonTutorial, placementOfNewIndustryTutorial,
-                        newIndustryInfoPanel, makeConnectionButtonTutorial, connectionPanel, connectionAnimationPanel;
+                      makeConnectionButtonTutorial, connectionPanel, connectionAnimationPanel;
     public GameObject arrow_distInd, arrow_ind;
 
     public bool interactable, distributionIndustry_bool, industry_bool;
@@ -25,7 +25,6 @@ public class Tutorial : MonoBehaviour
         industryPanel2.SetActive(false);
         howtoplayPanel.SetActive(false);
         addNewButtonTutorial.SetActive(false);
-        newIndustryInfoPanel.SetActive(false);
         makeConnectionButtonTutorial.SetActive(false);
         connectionPanel.SetActive(false);
         connectionAnimationPanel.SetActive(false);
