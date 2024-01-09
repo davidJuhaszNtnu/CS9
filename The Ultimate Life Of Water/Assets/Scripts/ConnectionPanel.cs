@@ -29,16 +29,18 @@ public class ConnectionPanel : MonoBehaviour
             card.SetActive(false);
         cards[from_index].transform.SetParent(left.transform, true);
         cards[from_index].transform.localPosition = Vector3.zero;
+        cards[from_index].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = gameController.GetComponent<gameController>().industries[from].name;
         cards[from_index].SetActive(true);
 
         cards[to_index].transform.SetParent(right.transform, true);
         cards[to_index].transform.localPosition = Vector3.zero;
+        cards[to_index].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = gameController.GetComponent<gameController>().industries[to].name;
         cards[to_index].SetActive(true);
 
         amount_text_object.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = cards[to_index].name + " receives:";
         amount_text_object.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = Math.Round(value, 2).ToString();
-        min_text.text = Math.Round(min_value, 2).ToString() + " m3";
-        max_text.text = Math.Round(max_value, 2).ToString() + " m3";
+        min_text.text = Math.Round(min_value, 2).ToString() + " m<sup>3</sup>";
+        max_text.text = Math.Round(max_value, 2).ToString() + " m<sup>3</sup>";
 
         slider.maxValue = max_value;
         slider.minValue = min_value;

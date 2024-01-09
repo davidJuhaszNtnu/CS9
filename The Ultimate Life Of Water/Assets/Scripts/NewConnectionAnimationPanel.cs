@@ -138,11 +138,8 @@ public class NewConnectionAnimationPanel : MonoBehaviour
         
         if(gameController.GetComponent<gameController>().tutorialOn){
             tutorial.GetComponent<Tutorial>().connectionAnimationPanel.SetActive(true);
-            tutorial.GetComponent<Tutorial>().connectionAnimationPanel.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "You achieved a waste water reduction of " + Math.Round(out_to_value * 100, 2).ToString() + 
-            "%. This means that so much waste water is now recycled in our symbiosis. This is good news for the environment.\n\n" + 
-            "Can you guess how to achieve a reduction in the amount of clean water the system recieves from the distribution industry?\n\n" +
-            "You win the escape room if the demands for the reductions are met and all the added new industries are receiving enough clean water. Good luck!\n\n" +
-            "Now you can continue or start over by clicking on the \"replay\" button.";
+            tutorial.GetComponent<Tutorial>().connectionAnimationPanel.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "You have created a connection.\n\nYou have achieved a waste water reduction of " + Math.Round(out_to_value * 100, 2).ToString() + 
+            "%. This means that so much waste water is now recycled in our symbiosis.\n\nThis is good news for the environment.";
         }
     }
 

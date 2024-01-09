@@ -659,23 +659,26 @@ public class gameController : MonoBehaviour
     public void update_texts_on_cards(){
         // add new industry panel
         for (int i = 0; i < new_count; i++){
+            center_to_compare.GetComponent<SnapToCenter>().images[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = industries[i + existing_count + 1].name;
             center_to_compare.GetComponent<SnapToCenter>().images[i].transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = (s[i + existing_count + 1]*100).ToString() + " %";
             center_to_compare.GetComponent<SnapToCenter>().images[i].transform.GetChild(6).GetComponent<TextMeshProUGUI>().text = (w[i + existing_count + 1]*100).ToString() + " %";
-            center_to_compare.GetComponent<SnapToCenter>().images[i].transform.GetChild(7).GetComponent<TextMeshProUGUI>().text = (p[i + existing_count + 1]).ToString() + " m3";
+            center_to_compare.GetComponent<SnapToCenter>().images[i].transform.GetChild(7).GetComponent<TextMeshProUGUI>().text = (p[i + existing_count + 1]).ToString() + " m<sup>3</sup>";
         }
 
         // connection panel
         for (int i = 0; i < industry_count - 1; i++){
+            connectionPanel.GetComponent<ConnectionPanel>().cards[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = industries[i].name;
             connectionPanel.GetComponent<ConnectionPanel>().cards[i].transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = (s[i + 1]*100).ToString() + " %";
             connectionPanel.GetComponent<ConnectionPanel>().cards[i].transform.GetChild(6).GetComponent<TextMeshProUGUI>().text = (w[i + 1]*100).ToString() + " %";
-            connectionPanel.GetComponent<ConnectionPanel>().cards[i].transform.GetChild(7).GetComponent<TextMeshProUGUI>().text = (p[i + 1]).ToString() + " m3";
+            connectionPanel.GetComponent<ConnectionPanel>().cards[i].transform.GetChild(7).GetComponent<TextMeshProUGUI>().text = (p[i + 1]).ToString() + " m<sup>3</sup>";
         }
 
         // info cards panel
         for (int i = 1; i < industry_count; i++){
+            infoCardsPanel.GetComponent<InfoCardsPanel>().info_cards.transform.GetChild(i).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = industries[i].name;
             infoCardsPanel.GetComponent<InfoCardsPanel>().info_cards.transform.GetChild(i).transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = (s[i]*100).ToString() + " %";
             infoCardsPanel.GetComponent<InfoCardsPanel>().info_cards.transform.GetChild(i).transform.GetChild(6).GetComponent<TextMeshProUGUI>().text = (w[i]*100).ToString() + " %";
-            infoCardsPanel.GetComponent<InfoCardsPanel>().info_cards.transform.GetChild(i).transform.GetChild(7).GetComponent<TextMeshProUGUI>().text = (p[i]).ToString() + " m3";
+            infoCardsPanel.GetComponent<InfoCardsPanel>().info_cards.transform.GetChild(i).transform.GetChild(7).GetComponent<TextMeshProUGUI>().text = (p[i]).ToString() + " m<sup>3</sup>";
         }
     }
 

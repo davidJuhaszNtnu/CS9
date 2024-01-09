@@ -101,6 +101,7 @@ public class InfoCardsPanel : MonoBehaviour
     }
 
     public void question_bttn(){
+        questionInfoCardPanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = gameController.GetComponent<gameController>().industries[index_showed].name;
         questionInfoCardPanel.SetActive(true);
         infoCardsPanel.SetActive(false);
         gameController.GetComponent<gameController>().allowed_to_view_info = false;
