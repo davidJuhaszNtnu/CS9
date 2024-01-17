@@ -56,49 +56,49 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
+        ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 
-        // if (Physics.Raycast(ray, out hit)){
-        //     if(hit.collider.name=="Floor"){
-        //         placementMarker.transform.position = hit.point + (new Vector3(0f, 0.01f ,0f));
-        //         if (!visible){
-        //             placementMarker.SetActive(true);
-        //             visible = true;
-        //         }
-        //         if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended){
-        //             if (!RectTransformUtility.RectangleContainsScreenPoint( confirm_button.GetComponent<RectTransform>(), Input.GetTouch(0).position) && !RectTransformUtility.RectangleContainsScreenPoint(back_button.GetComponent<RectTransform>(), Input.GetTouch(0).position)){
-        //                 gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].SetActive(true);
-        //                 gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].transform.position = hit.point + new Vector3(0f, 0.1f*app.GetComponent<App>().scale, 0f);
-        //                 placed = true;
-        //             }
-        //         }
-        //     }else if(visible){
-        //         placementMarker.SetActive(false);
-        //         visible=false;
-        //     }
-        // }else if(visible){
-        //         placementMarker.SetActive(false);
-        //         visible=false;
-        // }
-
-        if(Input.GetMouseButtonDown(0)){
-            if (!RectTransformUtility.RectangleContainsScreenPoint( confirm_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(back_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(question_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(ok_button.GetComponent<RectTransform>(), Input.mousePosition)){
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit)){
-                    if(hit.collider.name=="Floor"){
-                        // Debug.Log("hit the floor " + placed);
+        if (Physics.Raycast(ray, out hit)){
+            if(hit.collider.name=="Floor"){
+                placementMarker.transform.position = hit.point + (new Vector3(0f, 0.01f ,0f));
+                if (!visible){
+                    placementMarker.SetActive(true);
+                    visible = true;
+                }
+                if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended){
+                    if (!RectTransformUtility.RectangleContainsScreenPoint( confirm_button.GetComponent<RectTransform>(), Input.GetTouch(0).position) && !RectTransformUtility.RectangleContainsScreenPoint(back_button.GetComponent<RectTransform>(), Input.GetTouch(0).position)){
                         gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].SetActive(true);
-                        if(gameController.GetComponent<gameController>().new_industry_index == 6)
-                            gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].transform.localPosition = new Vector3(0.6f,0f,0f);
-                        if(gameController.GetComponent<gameController>().new_industry_index == 7)
-                            gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].transform.localPosition = new Vector3(0.6f,0f,0.2f);
-                        if(gameController.GetComponent<gameController>().new_industry_index == 8)
-                            gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].transform.localPosition = new Vector3(0.6f,0f,-0.2f);
+                        gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].transform.position = hit.point + new Vector3(0f, 0.1f*app.GetComponent<App>().scale, 0f);
                         placed = true;
                     }
                 }
+            }else if(visible){
+                placementMarker.SetActive(false);
+                visible=false;
             }
+        }else if(visible){
+                placementMarker.SetActive(false);
+                visible=false;
         }
+
+        // if(Input.GetMouseButtonDown(0)){
+        //     if (!RectTransformUtility.RectangleContainsScreenPoint( confirm_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(back_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(question_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(ok_button.GetComponent<RectTransform>(), Input.mousePosition)){
+        //         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //         if (Physics.Raycast(ray, out hit)){
+        //             if(hit.collider.name=="Floor"){
+        //                 // Debug.Log("hit the floor " + placed);
+        //                 gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].SetActive(true);
+        //                 if(gameController.GetComponent<gameController>().new_industry_index == 6)
+        //                     gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].transform.localPosition = new Vector3(0.6f,0f,0f);
+        //                 if(gameController.GetComponent<gameController>().new_industry_index == 7)
+        //                     gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].transform.localPosition = new Vector3(0.6f,0f,0.2f);
+        //                 if(gameController.GetComponent<gameController>().new_industry_index == 8)
+        //                     gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].transform.localPosition = new Vector3(0.6f,0f,-0.2f);
+        //                 placed = true;
+        //             }
+        //         }
+        //     }
+        // }
 
         if(placed)
             confirm_button.interactable = true;
