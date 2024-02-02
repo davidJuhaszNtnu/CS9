@@ -61,9 +61,9 @@ MonoBehaviour:
       m_GuidLow: 4834359903937233901
       m_GuidHigh: 9743941604197012378
     m_SerializedTextureGuid:
-      m_GuidLow: 3676306382227325117
-      m_GuidHigh: 325123923169975259
-    m_Size: {x: 0.25, y: 0.24356914}
+      m_GuidLow: 9674987666845454714
+      m_GuidHigh: 10738554547623508779
+    m_Size: {x: 0.25, y: 0.24896695}
     m_SpecifySize: 1
     m_Name: Industry3
     m_Texture: {fileID: 0}
