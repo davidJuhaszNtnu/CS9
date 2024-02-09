@@ -1,0 +1,11 @@
+Model Information:
+* title:	Futuristic Ion Thruster Prototype
+* source:	https://sketchfab.com/3d-models/futuristic-ion-thruster-prototype-b2c23bbb19de4efbb478f3d515584f68
+* author:	Grzybek (https://sketchfab.com/Kapuriada)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Futuristic Ion Thruster Prototype" (https://sketchfab.com/3d-models/futuristic-ion-thruster-prototype-b2c23bbb19de4efbb478f3d515584f68) by Grzybek (https://sketchfab.com/Kapuriada) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
