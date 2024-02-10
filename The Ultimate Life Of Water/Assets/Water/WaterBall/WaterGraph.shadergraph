@@ -36,7 +36,7 @@
     "m_Dropdowns": [],
     "m_CategoryData": [
         {
-            "m_Id": "0cf953f56cf24bbeae106ca4f67c3edc"
+            "m_Id": "2d69429c7c2040c48fecb1fd0194c1b4"
         }
     ],
     "m_Nodes": [
@@ -805,42 +805,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
-    "m_ObjectId": "0cf953f56cf24bbeae106ca4f67c3edc",
-    "m_Name": "",
-    "m_ChildObjectList": [
-        {
-            "m_Id": "ab5bbc78aace46cca47c976624c57654"
-        },
-        {
-            "m_Id": "f64f7fc51f514d1fa0c302cd1c54ace5"
-        },
-        {
-            "m_Id": "7f26fb54a3f1446cae706364d1d4c87b"
-        },
-        {
-            "m_Id": "df814fb1718447f4b430f7939cffe52f"
-        },
-        {
-            "m_Id": "ddb6293edce643b0ad001ef8e4bfe970"
-        },
-        {
-            "m_Id": "30c2129fc1b14cacae4c5402852fa917"
-        },
-        {
-            "m_Id": "ca96e47f336c4f3e94f6e18dd5768814"
-        },
-        {
-            "m_Id": "96f9a553b5284eca81b8c2e93d4b3cef"
-        },
-        {
-            "m_Id": "0bff4e4171a74502af3ba84d9406f085"
-        }
-    ]
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "0f59f13691094c62b69e8e214835a19f",
     "m_Id": 1,
@@ -1132,6 +1096,42 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "2d69429c7c2040c48fecb1fd0194c1b4",
+    "m_Name": "",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "ab5bbc78aace46cca47c976624c57654"
+        },
+        {
+            "m_Id": "f64f7fc51f514d1fa0c302cd1c54ace5"
+        },
+        {
+            "m_Id": "7f26fb54a3f1446cae706364d1d4c87b"
+        },
+        {
+            "m_Id": "df814fb1718447f4b430f7939cffe52f"
+        },
+        {
+            "m_Id": "ddb6293edce643b0ad001ef8e4bfe970"
+        },
+        {
+            "m_Id": "30c2129fc1b14cacae4c5402852fa917"
+        },
+        {
+            "m_Id": "ca96e47f336c4f3e94f6e18dd5768814"
+        },
+        {
+            "m_Id": "96f9a553b5284eca81b8c2e93d4b3cef"
+        },
+        {
+            "m_Id": "0bff4e4171a74502af3ba84d9406f085"
+        }
+    ]
 }
 
 {

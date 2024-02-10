@@ -547,7 +547,7 @@ public class gameController : MonoBehaviour
         if(has_technology[index]){
             s[index] = 1f;
             // create prefab
-            if(industries[index].transform.childCount == 0){
+            if(industries[index].transform.childCount == 1){
                 var instance = Instantiate(ultimate_technology_prefab);
                 instance.transform.SetParent(industries[index].transform, true);
                 instance.transform.localPosition = new Vector3(0f, 1f, 0f);
@@ -556,8 +556,8 @@ public class gameController : MonoBehaviour
         }else{
             s[index] = s_old[index];
             //destroy prefab
-            if(industries[index].transform.childCount > 0)
-                Destroy(industries[index].transform.GetChild(0).gameObject);
+            if(industries[index].transform.childCount > 1)
+                Destroy(industries[index].transform.GetChild(1).gameObject);
         }
 
         //if the industry is new
