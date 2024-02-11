@@ -1,0 +1,443 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1376,
+      "max": [
+        1.2378661632537842,
+        1.2378661632537842,
+        1.099174976348877
+      ],
+      "min": [
+        -1.2378661632537842,
+        -1.2378661632537842,
+        -1.099174976348877
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 16512,
+      "componentType": 5126,
+      "count": 1376,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1376,
+      "max": [
+        0.9984056949615479,
+        0.9997210502624512,
+        0.9999876618385315,
+        1.0
+      ],
+      "min": [
+        -0.9999577403068542,
+        -0.9998018145561218,
+        -0.9999830722808838,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1376,
+      "max": [
+        0.9956374764442444,
+        0.9997749924659729
+      ],
+      "min": [
+        0.00022497549070976675,
+        0.00022497549070976675
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 5760,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 33024,
+      "componentType": 5126,
+      "count": 1958,
+      "max": [
+        1.1828320026397705,
+        4.735236644744873,
+        1.1953964233398438
+      ],
+      "min": [
+        -1.1829332113265991,
+        -0.015882359817624092,
+        -1.146313190460205
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 56520,
+      "componentType": 5126,
+      "count": 1958,
+      "max": [
+        0.9991552233695984,
+        1.0,
+        0.9970437288284302
+      ],
+      "min": [
+        -0.9991120100021362,
+        -1.0,
+        -0.9997018575668335
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 22016,
+      "componentType": 5126,
+      "count": 1958,
+      "max": [
+        0.9992426633834839,
+        0.9987471103668213,
+        0.9336482882499695,
+        1.0
+      ],
+      "min": [
+        -0.9834440350532532,
+        -0.9972012639045715,
+        -0.9974892139434814,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 11008,
+      "componentType": 5126,
+      "count": 1958,
+      "max": [
+        0.9992899298667908,
+        0.9562578797340393
+      ],
+      "min": [
+        0.0007100013317540288,
+        0.0007100013317540288
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 23040,
+      "componentType": 5125,
+      "count": 3696,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Vegetable Assets (https://sketchfab.com/skrypious2)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/pipe-for-games-1f4f1c92a194480c8120df2d4bf4761d",
+      "title": "Pipe (For Games)"
+    },
+    "generator": "Sketchfab-12.78.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 37824,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 26672,
+      "byteOffset": 37824,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 80016,
+      "byteOffset": 64496,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 53344,
+      "byteOffset": 144512,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 197856,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Pipe_baseColor.png"
+    },
+    {
+      "uri": "textures/Pipe_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Pipe_normal.png"
+    },
+    {
+      "uri": "textures/Screws_baseColor.png"
+    },
+    {
+      "uri": "textures/Screws_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Screws_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Pipe",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Screws",
+      "normalTexture": {
+        "index": 5
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicRoughnessTexture": {
+          "index": 4
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Pipe_Pipe_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Screws_Screws_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Pipe.fbx"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -99.99999999999889,
+        -1.5099579909783709e-05,
+        0.0,
+        0.0,
+        3.623899408749395e-05,
+        -240.0000152587864,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Pipe"
+    },
+    {
+      "mesh": 0,
+      "name": "Pipe_Pipe_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        2.358842294825081e-07,
+        0.0,
+        235.9677276611328,
+        1.0
+      ],
+      "name": "Screws"
+    },
+    {
+      "mesh": 1,
+      "name": "Screws_Screws_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    }
+  ]
+}
