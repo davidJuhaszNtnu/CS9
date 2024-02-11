@@ -32,6 +32,12 @@ public class InfoCardsPanel : MonoBehaviour
                 ultimate_technology_button.interactable = false;
             else ultimate_technology_button.interactable = true;
         }else ultimate_technology_button.interactable = false;
+
+        if(gameController.GetComponent<gameController>().tutorialOn)
+            if(ultimate_technology_button.interactable)
+                ultimate_technology_button.interactable = false;
+        else if(!ultimate_technology_button.interactable)
+            ultimate_technology_button.interactable = true;
     }
 
     public void set_info(int index, float clean, float waste, string name, bool UT, bool UT_reached){

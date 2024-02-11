@@ -113,6 +113,8 @@ public class gameController : MonoBehaviour
             isReceivingEnough[i] = false;
             new_industries_placed[i] = false;
             industry_chosen[i] = false;
+            //water flow
+            industries[i + existing_count - 1].transform.GetChild(0).gameObject.SetActive(false);
         }
 
         player_won = false;
@@ -152,6 +154,8 @@ public class gameController : MonoBehaviour
         for (int i = 1; i < industry_count; i++){
             s_old[i] = s[i];
             has_technology[i] = false;
+            //ultimate tech
+            industries[i].transform.GetChild(1).gameObject.SetActive(false);
         }
 
         update_texts_on_cards();
@@ -171,6 +175,8 @@ public class gameController : MonoBehaviour
             out_waste[i] = clean[0, i]*w[i];
             sum_in += clean[0, i];
             sum_out += out_waste[i];
+            //water flow
+            industries[i].transform.GetChild(0).gameObject.SetActive(true);
         }
         total_in = sum_in;
         total_out = sum_out;
@@ -521,8 +527,19 @@ public class gameController : MonoBehaviour
         waste_water_reduction = 1 - total_out / waste_total_start;
 
         update_pillars();
+        check_water_flow(from, to);
 
         // Debug.Log(total_in + ", " + total_out);
+    }
+
+    private void check_water_flow(int from, int to){
+        if(out_waste[from] == 0f)
+            industries[from].transform.GetChild(0).gameObject.SetActive(false);
+        else industries[from].transform.GetChild(0).gameObject.SetActive(true);
+
+        if(out_waste[to] == 0f)
+            industries[to].transform.GetChild(0).gameObject.SetActive(false);
+        else industries[to].transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public bool UT_possible(int index){
@@ -547,17 +564,23 @@ public class gameController : MonoBehaviour
         if(has_technology[index]){
             s[index] = 1f;
             // create prefab
-            if(industries[index].transform.childCount == 1){
-                var instance = Instantiate(ultimate_technology_prefab);
-                instance.transform.SetParent(industries[index].transform, true);
-                instance.transform.localPosition = new Vector3(0f, 1f, 0f);
-                instance.transform.localScale *= app.GetComponent<App>().scale*1.5f;
+            // if(industries[index].transform.childCount == 1){
+            //     var instance = Instantiate(ultimate_technology_prefab);
+            //     instance.transform.SetParent(industries[index].transform, true);
+            //     instance.transform.localPosition = new Vector3(0f, 1f, 0f);
+            //     instance.transform.localScale *= app.GetComponent<App>().scale*1.5f;
+            // }
+            if(!industries[index].transform.GetChild(1).gameObject.activeSelf){
+                industries[index].transform.GetChild(1).gameObject.SetActive(true);
             }
         }else{
             s[index] = s_old[index];
             //destroy prefab
-            if(industries[index].transform.childCount > 1)
-                Destroy(industries[index].transform.GetChild(1).gameObject);
+            // if(industries[index].transform.childCount > 1)
+            //     Destroy(industries[index].transform.GetChild(1).gameObject);
+            if(industries[index].transform.GetChild(1).gameObject.activeSelf){
+                industries[index].transform.GetChild(1).gameObject.SetActive(false);
+            }
         }
 
         //if the industry is new
@@ -606,6 +629,7 @@ public class gameController : MonoBehaviour
         waste_water_reduction = 1 - total_out / waste_total_start;
 
         update_pillars();
+        check_water_flow(index, index);
     }
 
     void update_pillars(){
@@ -634,7 +658,7 @@ public class gameController : MonoBehaviour
         else totalIn_material.SetColor("_Color", new Color(0, 0, 255, 255));
         if(waste_water_reduction >= max_reduction_waste)
             totalOut_material.SetColor("_Color", new Color(0, 255, 0, 255));
-        else totalOut_material.SetColor("_Color", new Color(255, 0, 255, 255));
+        else totalOut_material.SetColor("_Color", new Color(191, 80, 9, 255));
     }
 
     public void check_if_winning(){
