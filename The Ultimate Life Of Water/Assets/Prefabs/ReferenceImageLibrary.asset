@@ -43,9 +43,9 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 757747645901749618
       m_GuidHigh: 1332007644146716360
-    m_Size: {x: 0.25, y: 0.249183}
+    m_Size: {x: 0.1, y: 0.099673204}
     m_SpecifySize: 1
-    m_Name: Industry1
+    m_Name: Food
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5111833959675974480
@@ -53,19 +53,9 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 14876755765618552928
       m_GuidHigh: 9109097268253670328
-    m_Size: {x: 0.25, y: 0.252443}
+    m_Size: {x: 0.1, y: 0.1009772}
     m_SpecifySize: 1
-    m_Name: Industry2
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 4834359903937233901
-      m_GuidHigh: 9743941604197012378
-    m_SerializedTextureGuid:
-      m_GuidLow: 9674987666845454714
-      m_GuidHigh: 10738554547623508779
-    m_Size: {x: 0.25, y: 0.24896695}
-    m_SpecifySize: 1
-    m_Name: Industry3
+    m_Name: Farm
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5143450906601390332
@@ -73,7 +63,27 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 4329189926709237282
       m_GuidHigh: 16463784996621898888
-    m_Size: {x: 0.25, y: 0.24560703}
+    m_Size: {x: 0.1, y: 0.09824281}
     m_SpecifySize: 1
-    m_Name: Industry4
+    m_Name: Refinery
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5227091907238189375
+      m_GuidHigh: 1832172136908791703
+    m_SerializedTextureGuid:
+      m_GuidLow: 10823527199909663530
+      m_GuidHigh: 14858661233226290889
+    m_Size: {x: 0.1, y: 0.09855538}
+    m_SpecifySize: 1
+    m_Name: Utility
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5517740371694514530
+      m_GuidHigh: 14278441990274830976
+    m_SerializedTextureGuid:
+      m_GuidLow: 1771063788977921069
+      m_GuidHigh: 9811353888303492537
+    m_Size: {x: 0.1, y: 0.100324675}
+    m_SpecifySize: 1
+    m_Name: Chemical
     m_Texture: {fileID: 0}

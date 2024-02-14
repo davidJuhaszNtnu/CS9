@@ -16,7 +16,6 @@ public class ChooseIndustriesPanel : MonoBehaviour
     RaycastHit hit;
     int from, to;
     bool selected_to;
-    Material from_material, to_material;
 
     void Start()
     {
@@ -41,8 +40,8 @@ public class ChooseIndustriesPanel : MonoBehaviour
                                 selected_to = true;
                                 if(to > gameController.GetComponent<gameController>().existing_count)
                                     gameController.GetComponent<gameController>().industry_chosen[to - gameController.GetComponent<gameController>().existing_count -1] = true;
-                                to_material = industry.GetComponent<MeshRenderer> ().material;
-                                industry.GetComponent<MeshRenderer> ().material = material_selected;
+                                industry.transform.GetChild(2).gameObject.SetActive(true);
+                                industry.transform.GetChild(2).GetComponent<MeshRenderer> ().material = material_selected;
                                 to_text.text = industry.name;
                             }
                         }
@@ -59,21 +58,21 @@ public class ChooseIndustriesPanel : MonoBehaviour
     public void setup_connection(int f){
         from = f;
         GameObject industry = gameController.GetComponent<gameController>().industries[from];
-        from_material = industry.GetComponent<MeshRenderer>().material;
+        industry.transform.GetChild(2).gameObject.SetActive(true);
         if(from > gameController.GetComponent<gameController>().existing_count)
             gameController.GetComponent<gameController>().industry_chosen[from - gameController.GetComponent<gameController>().existing_count -1] = true;
-        industry.GetComponent<MeshRenderer> ().material = material_selected;
+        industry.transform.GetChild(2).GetComponent<MeshRenderer>().material = material_selected;
         from_text.text = industry.name;
     }
 
     public void back_bttn(){
-        gameController.GetComponent<gameController>().industries[from].GetComponent<MeshRenderer> ().material = from_material;
+        gameController.GetComponent<gameController>().industries[from].transform.GetChild(2).gameObject.SetActive(false);
         if(from > gameController.GetComponent<gameController>().existing_count)
             gameController.GetComponent<gameController>().industry_chosen[from - gameController.GetComponent<gameController>().existing_count -1] = false;
         from_text.text = " ";
 
         if(selected_to){
-            gameController.GetComponent<gameController>().industries[to].GetComponent<MeshRenderer> ().material = to_material;
+            gameController.GetComponent<gameController>().industries[to].transform.GetChild(2).gameObject.SetActive(false);
             if(to > gameController.GetComponent<gameController>().existing_count)
                 gameController.GetComponent<gameController>().industry_chosen[to - gameController.GetComponent<gameController>().existing_count -1] = false;
             to_text.text = " ";
@@ -90,12 +89,12 @@ public class ChooseIndustriesPanel : MonoBehaviour
     }
 
     public void back(){
-        gameController.GetComponent<gameController>().industries[from].GetComponent<MeshRenderer> ().material = from_material;
+        gameController.GetComponent<gameController>().industries[from].transform.GetChild(2).gameObject.SetActive(false);
         if(from > gameController.GetComponent<gameController>().existing_count)
             gameController.GetComponent<gameController>().industry_chosen[from - gameController.GetComponent<gameController>().existing_count -1] = false;
         from_text.text = " ";
 
-        gameController.GetComponent<gameController>().industries[to].GetComponent<MeshRenderer> ().material = to_material;
+        gameController.GetComponent<gameController>().industries[to].transform.GetChild(2).gameObject.SetActive(false);
         if(to > gameController.GetComponent<gameController>().existing_count)
             gameController.GetComponent<gameController>().industry_chosen[to - gameController.GetComponent<gameController>().existing_count -1] = false;
         to_text.text = " ";

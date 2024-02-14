@@ -150,7 +150,7 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
                 // newIndustryInfoPanel.SetActive(false);
                 tutorial.GetComponent<Tutorial>().makeConnectionButtonTutorial.SetActive(true);
                 tutorial.GetComponent<Tutorial>().arrow_ind = Instantiate(tutorial.GetComponent<Tutorial>().arrow_ind_prefab);
-                tutorial.GetComponent<Tutorial>().arrow_ind.transform.SetParent(tutorial.GetComponent<Tutorial>().industry1.transform, true);
+                tutorial.GetComponent<Tutorial>().arrow_ind.transform.SetParent(tutorial.GetComponent<Tutorial>().utility.transform, true);
                 tutorial.GetComponent<Tutorial>().arrow_ind.transform.localPosition = new Vector3(0f, 1.2f, 0f);
                 tutorial.GetComponent<Tutorial>().arrow_ind.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
                 tutorial.GetComponent<Tutorial>().arrow_ind.transform.localScale *= app.GetComponent<App>().scale*2f;

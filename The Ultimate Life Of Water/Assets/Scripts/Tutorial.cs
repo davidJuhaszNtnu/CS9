@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    public GameObject gameController, arrow_distInd_prefab, arrow_ind_prefab, distribution_industry, app, industry1, tutorial;
+    public GameObject gameController, arrow_distInd_prefab, arrow_ind_prefab, distribution_industry, app, utility, tutorial;
     public GameObject welcomePanel, welcomePanel2, distributionIndustryPanel, industryPanel1, industryPanel2, howtoplayPanel, addNewButtonTutorial, placementOfNewIndustryTutorial,
                       makeConnectionButtonTutorial, connectionPanel, connectionAnimationPanel;
     public GameObject arrow_distInd, arrow_ind;
@@ -43,7 +43,7 @@ public class Tutorial : MonoBehaviour
         welcomePanel2.SetActive(false);
         arrow_distInd = Instantiate(arrow_distInd_prefab);
         arrow_distInd.transform.SetParent(distribution_industry.transform, true);
-        arrow_distInd.transform.localPosition = new Vector3(0f, 0.9f, 0f);
+        arrow_distInd.transform.localPosition = new Vector3(0f, 100f, 0f);
         arrow_distInd.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
         arrow_distInd.transform.localScale *= app.GetComponent<App>().scale*2f;
         interactable = true;
@@ -53,7 +53,7 @@ public class Tutorial : MonoBehaviour
     public void next_distributionIndustryPanel_bttn(){
         distributionIndustryPanel.SetActive(false);
         arrow_ind = Instantiate(arrow_ind_prefab);
-        arrow_ind.transform.SetParent(industry1.transform, true);
+        arrow_ind.transform.SetParent(utility.transform, true);
         arrow_ind.transform.localPosition = new Vector3(0f, 1.2f, 0f);
         arrow_ind.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
         arrow_ind.transform.localScale *= app.GetComponent<App>().scale*2f;
@@ -110,7 +110,7 @@ public class Tutorial : MonoBehaviour
                     Destroy(arrow_distInd);
                     distributionIndustry_bool = false;
                 }
-                if(hit.collider.name == "Industry 1" && industry_bool){
+                if(hit.collider.name == "Utility" && industry_bool){
                     interactable = false;
                     if(!industry_secondTime){
                         industryPanel1.SetActive(true);

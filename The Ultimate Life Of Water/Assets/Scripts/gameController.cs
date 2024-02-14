@@ -156,6 +156,8 @@ public class gameController : MonoBehaviour
             has_technology[i] = false;
             //ultimate tech
             industries[i].transform.GetChild(1).gameObject.SetActive(false);
+            //bottom of industries
+            industries[i].transform.GetChild(2).gameObject.SetActive(false);
         }
 
         update_texts_on_cards();
@@ -280,13 +282,13 @@ public class gameController : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && tutorial.transform.GetComponent<Tutorial>().industry_secondTime && tutorialOn){
             ray = arCamera.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit)){
-                if(hit.collider.name == "Industry 1"){
+                if(hit.collider.name == "Utility"){
                     mainPanel.SetActive(false);
                     infoCardsPanel.SetActive(true);
                     infoCardsPanel.transform.GetComponent<InfoCardsPanel>().ok_button.interactable = false;
                     GameObject industry = industries[1];
-                    int index = 1;
-                    selected_index = 1;
+                    int index = 2;
+                    selected_index = 2;
                     float clean_in;
                     float sum_in = 0f;
                     for (int i = 1; i < industry_count; i++)
@@ -308,8 +310,8 @@ public class gameController : MonoBehaviour
                             clean_in = clean[0, index] + sum_in * s[index];
                         else clean_in = sum_in * s[index];
 
-                        infoCardsPanel.GetComponent<InfoCardsPanel>().set_info(index, clean_in, out_waste[index], industry.name, UT_possible(index), UT_limit_reached);
-                    }else infoCardsPanel.GetComponent<InfoCardsPanel>().set_info(index, 0f, 0f, industry.name, UT_possible(index), UT_limit_reached);
+                        infoCardsPanel.GetComponent<InfoCardsPanel>().set_info(index, clean_in, out_waste[index], "Utility", UT_possible(index), UT_limit_reached);
+                    }else infoCardsPanel.GetComponent<InfoCardsPanel>().set_info(index, 0f, 0f, "Utility", UT_possible(index), UT_limit_reached);
 
                     allowed_to_view_info = false;
                 }

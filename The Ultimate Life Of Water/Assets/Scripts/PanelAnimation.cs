@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class PanelAnimation : MonoBehaviour
 {
-    public bool animate_forward, animate_backward, selected;
+    public bool animate_forward, animate_backward, selected, interactable;
 
     public float t;
     private float sin_t, dt;
     private Vector3 start, end;
     private Transform parent;
+    public GameObject panel1, panel2, panel3;
+
+    Ray ray;
+    RaycastHit hit;
+    Camera arCamera;
 
     void Start()
     {
@@ -21,7 +26,9 @@ public class PanelAnimation : MonoBehaviour
         end = new Vector3(0f, start.y, 1f);
         parent = transform.parent;
         t = 0;
-        dt = 0.03f;
+        dt = 0.01f;
+        arCamera = Camera.main;
+        interactable = true;
     }
 
     void Update()
@@ -30,6 +37,18 @@ public class PanelAnimation : MonoBehaviour
             AnimateForward();
         if(animate_backward)
             AnimateBackward();
+
+        if(Input.GetMouseButtonDown(0)){
+            ray = arCamera.ScreenPointToRay(Input.mousePosition);
+            if(Physics.Raycast(ray, out hit) && interactable){
+                if(hit.collider.tag == "panel1")
+                    panel1.GetComponent<PanelAnimation>().OnClick();
+                if(hit.collider.tag == "panel2")
+                    panel2.GetComponent<PanelAnimation>().OnClick();
+                if(hit.collider.tag == "panel3")
+                    panel3.GetComponent<PanelAnimation>().OnClick();
+            }
+        }
     }
 
     public void AnimateForward(){
@@ -40,7 +59,8 @@ public class PanelAnimation : MonoBehaviour
         else{
             animate_forward = false;
             foreach(Transform child in parent)
-                child.transform.GetComponent<Button>().interactable = true;
+                child.GetComponent<PanelAnimation>().interactable = true;
+                // child.transform.GetComponent<Button>().interactable = true;
             transform.localPosition = end;
         }
     }
@@ -62,7 +82,8 @@ public class PanelAnimation : MonoBehaviour
             }
             animate_backward = false;
             foreach(Transform child in parent)
-                child.transform.GetComponent<Button>().interactable = true;
+                child.GetComponent<PanelAnimation>().interactable = true;
+                // child.transform.GetComponent<Button>().interactable = true;
             transform.localPosition = start;
         }
     }
@@ -70,13 +91,15 @@ public class PanelAnimation : MonoBehaviour
     public void OnClick(){
         if(selected){
             foreach(Transform child in parent)
-                child.transform.GetComponent<Button>().interactable = false;
+                child.GetComponent<PanelAnimation>().interactable = false;
+                // child.transform.GetComponent<Button>().interactable = false;
             selected = false;
             animate_backward = true;
             t = 0f;
         }else{
             foreach(Transform child in parent)
-                child.transform.GetComponent<Button>().interactable = false;
+                child.GetComponent<PanelAnimation>().interactable = false;
+                // child.transform.GetComponent<Button>().interactable = false;
             selected = true;
             animate_forward = true;
             t = 0f;
@@ -84,7 +107,8 @@ public class PanelAnimation : MonoBehaviour
             foreach(Transform child in parent){
                 if(child.name != transform.name){
                     if(child.GetComponent<PanelAnimation>().selected){
-                        child.transform.GetComponent<Button>().interactable = false;
+                        child.GetComponent<PanelAnimation>().interactable = false;
+                        // child.transform.GetComponent<Button>().interactable = false;
                         child.transform.GetComponent<PanelAnimation>().selected = false;
                         child.transform.GetComponent<PanelAnimation>().animate_backward = true;
                         child.transform.GetComponent<PanelAnimation>().t = 0f;
@@ -97,7 +121,8 @@ public class PanelAnimation : MonoBehaviour
     public void restart(){
         foreach(Transform child in parent){
             if(child.GetComponent<PanelAnimation>().selected){
-                child.transform.GetComponent<Button>().interactable = false;
+                child.GetComponent<PanelAnimation>().interactable = false;
+                // child.transform.GetComponent<Button>().interactable = false;
                 child.transform.GetComponent<PanelAnimation>().selected = false;
                 child.transform.GetComponent<PanelAnimation>().animate_backward = true;
                 child.transform.GetComponent<PanelAnimation>().t = 0f;

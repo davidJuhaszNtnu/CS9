@@ -10,6 +10,9 @@ TagManager:
   - industry2
   - industry3
   - industry4
+  - panel1
+  - panel3
+  - panel2
   layers:
   - Default
   - TransparentFX
