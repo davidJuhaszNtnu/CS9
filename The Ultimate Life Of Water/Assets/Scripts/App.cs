@@ -50,13 +50,13 @@ public class App : MonoBehaviour
 
         //-----
 
-        // firstPoint = new Vector3(0f, 0f, 0f);
-        // secondPoint = new Vector3(0f, 0f, 0.2f);
-        // gotBoth = true;
+        firstPoint = new Vector3(0f, 0f, 0f);
+        secondPoint = new Vector3(0f, 0f, 0.2f);
+        gotBoth = true;
 
-        // infographics.SetActive(false);
-        // welcomePanel.SetActive(false);
-        // calibrate();
+        infographics.SetActive(false);
+        welcomePanel.SetActive(false);
+        calibrate();
     }
 
     void Update()
@@ -108,7 +108,7 @@ public class App : MonoBehaviour
         environment.SetActive(true);
 
         environment.transform.localScale *= scale;
-        // environment.transform.position = firstPoint + new Vector3(-0.5f, -0.5f, 2f);
+        environment.transform.position = firstPoint + new Vector3(-0.5f, -0.5f, 2f);
         environment.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
 
         gameController.GetComponent<gameController>().start();
