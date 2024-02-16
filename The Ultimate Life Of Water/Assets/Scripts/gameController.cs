@@ -114,7 +114,8 @@ public class gameController : MonoBehaviour
             new_industries_placed[i] = false;
             industry_chosen[i] = false;
             //water flow
-            industries[i + existing_count - 1].transform.GetChild(0).gameObject.SetActive(false);
+            industries[i + existing_count + 1].transform.GetChild(0).gameObject.SetActive(false);
+            industries[i + existing_count + 1].SetActive(false);
         }
 
         player_won = false;
@@ -270,13 +271,13 @@ public class gameController : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < new_count; i++){
-            if(new_industries_placed[i] && !industry_chosen[i]){
-                if(!isReceivingEnough[i])
-                    animate_new_industry_color(i + existing_count + 1);
-                else industries[i + existing_count + 1].GetComponent<ColorProps>().apply_material(isReceivingEnough_material);
-            }
-        }
+        // for (int i = 0; i < new_count; i++){
+        //     if(new_industries_placed[i] && !industry_chosen[i]){
+        //         if(!isReceivingEnough[i])
+        //             animate_new_industry_color(i + existing_count + 1);
+        //         else industries[i + existing_count + 1].GetComponent<ColorProps>().apply_material(isReceivingEnough_material);
+        //     }
+        // }
 
         //tutorial
         if(Input.GetMouseButtonDown(0) && tutorial.transform.GetComponent<Tutorial>().industry_secondTime && tutorialOn){
@@ -733,7 +734,7 @@ public class gameController : MonoBehaviour
         waste_water_reduction = 0f;
 
         for (int i = 0; i < new_count; i++){
-            industries[i + existing_count + 1].GetComponent<ColorProps>().restart_material();
+            // industries[i + existing_count + 1].GetComponent<ColorProps>().restart_material();
             industries[i + existing_count + 1].SetActive(false);
         }
         
