@@ -116,6 +116,8 @@ public class gameController : MonoBehaviour
             //water flow
             industries[i + existing_count + 1].transform.GetChild(0).gameObject.SetActive(false);
             industries[i + existing_count + 1].SetActive(false);
+            //bottom of industries
+            industries[i + existing_count + 1].transform.GetChild(2).gameObject.SetActive(true);
         }
 
         player_won = false;
@@ -157,8 +159,6 @@ public class gameController : MonoBehaviour
             has_technology[i] = false;
             //ultimate tech
             industries[i].transform.GetChild(1).gameObject.SetActive(false);
-            //bottom of industries
-            industries[i].transform.GetChild(2).gameObject.SetActive(false);
         }
 
         update_texts_on_cards();
@@ -180,6 +180,8 @@ public class gameController : MonoBehaviour
             sum_out += out_waste[i];
             //water flow
             industries[i].transform.GetChild(0).gameObject.SetActive(true);
+            //bottom of industries
+            industries[i].transform.GetChild(2).gameObject.SetActive(false);
         }
         total_in = sum_in;
         total_out = sum_out;
@@ -271,13 +273,13 @@ public class gameController : MonoBehaviour
             }
         }
 
-        // for (int i = 0; i < new_count; i++){
-        //     if(new_industries_placed[i] && !industry_chosen[i]){
-        //         if(!isReceivingEnough[i])
-        //             animate_new_industry_color(i + existing_count + 1);
-        //         else industries[i + existing_count + 1].GetComponent<ColorProps>().apply_material(isReceivingEnough_material);
-        //     }
-        // }
+        for (int i = 0; i < new_count; i++){
+            if(new_industries_placed[i] && !industry_chosen[i]){
+                if(!isReceivingEnough[i])
+                    animate_new_industry_color(i + existing_count + 1);
+                else industries[i + existing_count + 1].transform.GetChild(2).GetComponent<ColorProps>().apply_material(isReceivingEnough_material);
+            }
+        }
 
         //tutorial
         if(Input.GetMouseButtonDown(0) && tutorial.transform.GetComponent<Tutorial>().industry_secondTime && tutorialOn){
@@ -372,20 +374,20 @@ public class gameController : MonoBehaviour
     }
 
     private void animate_new_industry_color(int index){
-        if(industries[index].GetComponent<ColorProps>().forward)
-            industries[index].GetComponent<ColorProps>().t += 0.02f;
-        else industries[index].GetComponent<ColorProps>().t -= 0.02f;
+        if(industries[index].transform.GetChild(2).GetComponent<ColorProps>().forward)
+            industries[index].transform.GetChild(2).GetComponent<ColorProps>().t += 0.02f;
+        else industries[index].transform.GetChild(2).GetComponent<ColorProps>().t -= 0.02f;
 
-        if(industries[index].GetComponent<ColorProps>().t > 1f){
-            industries[index].GetComponent<ColorProps>().forward = false;
-            industries[index].GetComponent<ColorProps>().t -= 0.02f;
+        if(industries[index].transform.GetChild(2).GetComponent<ColorProps>().t > 1f){
+            industries[index].transform.GetChild(2).GetComponent<ColorProps>().forward = false;
+            industries[index].transform.GetChild(2).GetComponent<ColorProps>().t -= 0.02f;
         }
-        if(industries[index].GetComponent<ColorProps>().t < 0f){
-            industries[index].GetComponent<ColorProps>().forward = true;
-            industries[index].GetComponent<ColorProps>().t += 0.02f;
+        if(industries[index].transform.GetChild(2).GetComponent<ColorProps>().t < 0f){
+            industries[index].transform.GetChild(2).GetComponent<ColorProps>().forward = true;
+            industries[index].transform.GetChild(2).GetComponent<ColorProps>().t += 0.02f;
         }
 
-        industries[index].GetComponent<ColorProps>().flash_color();
+        industries[index].transform.GetChild(2).GetComponent<ColorProps>().flash_color();
     }
 
     private void createArrowPaths(int from, int to, float curvature, GameObject arrow_prefab, GameObject path_prefab, float t){

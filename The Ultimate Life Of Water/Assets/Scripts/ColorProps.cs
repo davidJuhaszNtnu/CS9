@@ -8,7 +8,6 @@ public class ColorProps : MonoBehaviour
     public bool forward;
     public Material flashMaterial;
     
-    private Material material;
     private Color A, B;
 
     void Start()
@@ -20,18 +19,18 @@ public class ColorProps : MonoBehaviour
     }
 
     public void flash_color(){
-        if(transform.GetChild(2).GetComponent<Renderer>().material != flashMaterial)
-            transform.GetChild(2).GetComponent<Renderer>().material = flashMaterial;
+        if(transform.GetComponent<Renderer>().material != flashMaterial)
+            transform.GetComponent<Renderer>().material = flashMaterial;
         Color c = new Color(A.r + (B.r-A.r) * t, A.g + (B.g-A.g) * t, A.b + (B.b-A.b) * t, 1f);
-        transform.GetChild(2).GetComponent<Renderer>().material.color = c;
+        transform.GetComponent<Renderer>().material.color = c;
     }
 
     public void apply_material(Material mat){
-        transform.GetChild(2).GetComponent<Renderer>().material = mat;
+        transform.GetComponent<Renderer>().material = mat;
     }
 
     public void restart_material(){
-        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetComponent<Renderer>().material = flashMaterial;
     }
 
 }
