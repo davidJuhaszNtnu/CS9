@@ -29,7 +29,7 @@ public class ParamaterGameController : MonoBehaviour
         Vector3 oldScale = cubes[i].transform.localScale;
         Vector3 oldPosition = cubes[i].transform.localPosition;
         cubes[i].transform.localScale = new Vector3(oldScale.x, sliders[i].value, oldScale.z);
-        cubes[i].transform.localPosition = new Vector3(oldPosition.x, sliders[i].value/2f, oldPosition.z);
+        cubes[i].transform.localPosition = new Vector3(oldPosition.x, sliders[i].value/2f - 0.5f, oldPosition.z);
     }
 
     public void restart(){

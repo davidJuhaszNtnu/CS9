@@ -43,8 +43,8 @@ public class Tutorial : MonoBehaviour
         welcomePanel2.SetActive(false);
         arrow_distInd = Instantiate(arrow_distInd_prefab);
         arrow_distInd.transform.SetParent(distribution_industry.transform, true);
-        arrow_distInd.transform.localPosition = new Vector3(0f, 100f, 0f);
-        arrow_distInd.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        arrow_distInd.transform.localPosition = new Vector3(0f, 15f, 0f);
+        arrow_distInd.transform.localRotation = Quaternion.Euler(0f, -90f, 90f);
         arrow_distInd.transform.localScale *= app.GetComponent<App>().scale*2f;
         interactable = true;
         gameController.transform.GetComponent<gameController>().add_new_button.interactable = false;
@@ -54,7 +54,7 @@ public class Tutorial : MonoBehaviour
         distributionIndustryPanel.SetActive(false);
         arrow_ind = Instantiate(arrow_ind_prefab);
         arrow_ind.transform.SetParent(utility.transform, true);
-        arrow_ind.transform.localPosition = new Vector3(0f, 1.2f, 0f);
+        arrow_ind.transform.localPosition = new Vector3(0f, 80f, 0f);
         arrow_ind.transform.localRotation = Quaternion.Euler(0f, 90f, 90f);
         arrow_ind.transform.localScale *= app.GetComponent<App>().scale*2f;
         interactable = true;
@@ -104,7 +104,7 @@ public class Tutorial : MonoBehaviour
          if(Input.GetMouseButtonDown(0) && interactable){
             ray = arCamera.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit)){
-                if(hit.collider.name == "Distribution Industry" && distributionIndustry_bool){
+                if(hit.collider.name == "Ultimate City" && distributionIndustry_bool){
                     interactable = false;
                     distributionIndustryPanel.SetActive(true);
                     Destroy(arrow_distInd);
