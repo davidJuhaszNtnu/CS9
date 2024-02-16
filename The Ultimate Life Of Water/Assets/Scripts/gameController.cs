@@ -719,8 +719,6 @@ public class gameController : MonoBehaviour
             Destroy(path.gameObject);
         
         for (int i = 1; i < industry_count; i++){
-            if(industries[i].transform.childCount > 0)
-                Destroy(industries[i].transform.GetChild(0).gameObject);
             if(has_technology[i]){
                 infoCardsPanel.GetComponent<InfoCardsPanel>().info_cards.transform.GetChild(i).transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = (s_old[i]*100).ToString() + " %";
                 infoCardsPanel.GetComponent<InfoCardsPanel>().info_cards.transform.GetChild(i).transform.GetChild(5).GetComponent<TextMeshProUGUI>().color = Color.black;
@@ -736,7 +734,7 @@ public class gameController : MonoBehaviour
         waste_water_reduction = 0f;
 
         for (int i = 0; i < new_count; i++){
-            // industries[i + existing_count + 1].GetComponent<ColorProps>().restart_material();
+            // industries[i + existing_count + 1].transform.GetChild(2).GetComponent<ColorProps>().apply_material(mater);
             industries[i + existing_count + 1].SetActive(false);
         }
         

@@ -28,9 +28,4 @@ public class ColorProps : MonoBehaviour
     public void apply_material(Material mat){
         transform.GetComponent<Renderer>().material = mat;
     }
-
-    public void restart_material(){
-        transform.GetComponent<Renderer>().material = flashMaterial;
-    }
-
 }
