@@ -21,6 +21,7 @@ TagManager:
   - Chemical
   - Food
   - Farm
+  - City
   layers:
   - Default
   - TransparentFX

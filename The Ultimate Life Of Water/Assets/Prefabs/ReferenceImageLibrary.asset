@@ -87,3 +87,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: Chemical
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5463707764940592878
+      m_GuidHigh: 7664482272347094912
+    m_SerializedTextureGuid:
+      m_GuidLow: 9674987666845454714
+      m_GuidHigh: 10738554547623508779
+    m_Size: {x: 0.1, y: 0.09958678}
+    m_SpecifySize: 1
+    m_Name: City
+    m_Texture: {fileID: 0}

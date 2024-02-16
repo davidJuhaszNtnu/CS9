@@ -55,7 +55,7 @@ public class Tutorial : MonoBehaviour
         arrow_ind = Instantiate(arrow_ind_prefab);
         arrow_ind.transform.SetParent(utility.transform, true);
         arrow_ind.transform.localPosition = new Vector3(0f, 1.2f, 0f);
-        arrow_ind.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        arrow_ind.transform.localRotation = Quaternion.Euler(0f, 90f, 90f);
         arrow_ind.transform.localScale *= app.GetComponent<App>().scale*2f;
         interactable = true;
     }

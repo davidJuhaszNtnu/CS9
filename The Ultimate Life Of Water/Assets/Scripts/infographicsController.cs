@@ -29,7 +29,7 @@ public class infographicsController : MonoBehaviour
                         Vector3 dir = arCamera.transform.forward;
                         industry_model.transform.rotation = Quaternion.LookRotation(new Vector3(dir.x,0f,dir.z), Vector3.up);
                         industry_model.transform.GetChild(0).gameObject.SetActive(true);
-                        if(industry_model.tag == "industry3"){
+                        if(industry_model.tag == "City"){
                             industry_model.transform.GetChild(1).gameObject.SetActive(false);
                         }
                     }
@@ -82,6 +82,10 @@ public class infographicsController : MonoBehaviour
             if(industry_model.activeSelf){
                 industry_model.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<PanelAnimation>().restart();
                 industry_model.SetActive(false);
+                if(industry_model.tag == "City"){
+                    industry_model.transform.GetChild(0).gameObject.SetActive(true);
+                    industry_model.transform.GetChild(1).gameObject.SetActive(false);
+                }
             }
         }
     }
