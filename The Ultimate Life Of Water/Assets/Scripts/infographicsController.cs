@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class infographicsController : MonoBehaviour
 {
@@ -9,13 +10,13 @@ public class infographicsController : MonoBehaviour
     public Camera arCamera;
 
     public GameObject[] industry_models;
+    public GameObject appPanel;
 
     void Start()
     {
         foreach(GameObject industry_model in industry_models)
             industry_model.SetActive(false);
     }
-
     
     void Update()
     {
@@ -41,7 +42,9 @@ public class infographicsController : MonoBehaviour
     public void exit_bttn(){
         foreach(GameObject industry_model in industry_models){
             if(industry_model.activeSelf){
-                industry_model.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<PanelAnimation>().restart();
+                if(industry_model.tag == "Utility" || industry_model.tag == "City")
+                    industry_model.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<SinglePanelAnimation>().restart();
+                else industry_model.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<PanelAnimation>().restart();
                 industry_model.SetActive(false);
             }
         }
@@ -54,6 +57,7 @@ public class infographicsController : MonoBehaviour
                 industry_model.transform.GetChild(1).gameObject.SetActive(true);
             }
         }
+        appPanel.SetActive(false);
     }
 
     public void back_bttn(){
@@ -63,6 +67,7 @@ public class infographicsController : MonoBehaviour
                 industry_model.transform.GetChild(1).gameObject.SetActive(false);
             }
         }
+        appPanel.SetActive(true);
     }
 
     public void restart_bttn(){
@@ -73,14 +78,12 @@ public class infographicsController : MonoBehaviour
         }
     }
 
-    public void info_bttn(){
-        
-    }
-
     public void exit_paramater_bttn(){
         foreach(GameObject industry_model in industry_models){
             if(industry_model.activeSelf){
-                industry_model.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<PanelAnimation>().restart();
+                if(industry_model.tag == "Utility" || industry_model.tag == "City")
+                    industry_model.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<SinglePanelAnimation>().restart();    
+                else industry_model.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<PanelAnimation>().restart();
                 industry_model.SetActive(false);
                 if(industry_model.tag == "City"){
                     industry_model.transform.GetChild(0).gameObject.SetActive(true);
@@ -88,5 +91,6 @@ public class infographicsController : MonoBehaviour
                 }
             }
         }
+        appPanel.SetActive(true);
     }
 }

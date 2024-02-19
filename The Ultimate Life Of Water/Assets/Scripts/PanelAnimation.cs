@@ -23,10 +23,10 @@ public class PanelAnimation : MonoBehaviour
         animate_backward = false;
         selected = false;
         start = transform.localPosition;
-        end = new Vector3(0f, start.y, 1f);
+        end = new Vector3(0f, start.y, 0.4f);
         parent = transform.parent;
         t = 0;
-        dt = 0.01f;
+        dt = 0.03f;
         arCamera = Camera.main;
         interactable = true;
     }
