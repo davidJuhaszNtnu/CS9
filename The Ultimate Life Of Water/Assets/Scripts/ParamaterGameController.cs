@@ -9,7 +9,7 @@ public class ParamaterGameController : MonoBehaviour
     public Slider[] sliders;
     public GameObject[] cubes;
 
-    private float result;
+    private bool enough_water;
 
     void Start()
     {
@@ -18,7 +18,17 @@ public class ParamaterGameController : MonoBehaviour
 
     void Update()
     {
-        
+        if(enough_water){
+            if(!transform.GetChild(0).gameObject.activeSelf)
+                transform.GetChild(0).gameObject.SetActive(true);
+            if(transform.GetChild(1).gameObject.activeSelf)
+                transform.GetChild(1).gameObject.SetActive(false);
+        }else{
+            if(transform.GetChild(0).gameObject.activeSelf)
+                transform.GetChild(0).gameObject.SetActive(false);
+            if(!transform.GetChild(1).gameObject.activeSelf)
+                transform.GetChild(1).gameObject.SetActive(true);
+        }
     }
 
     public void slider1_change(){
@@ -39,11 +49,16 @@ public class ParamaterGameController : MonoBehaviour
         cubes[i].transform.localScale = new Vector3(oldScale.x, sliders[i].value, oldScale.z);
         cubes[i].transform.localPosition = new Vector3(oldPosition.x, sliders[i].value/2f - 0.5f, oldPosition.z);
 
-        result = 1/(1 + Mathf.Exp(-(sliders[0].value + sliders[1].value + sliders[2].value - 1f) * Mathf.Pow(4f + 16f * (sliders[0].value - sliders[1].value - sliders[2].value),2)));
-        Debug.Log(result);
+        if(sliders[0].value > 0.6f && sliders[1].value > 0.6f && sliders[2].value > 0.6f)
+            enough_water = true;
+        else enough_water = false;
     }
 
     public void restart(){
+        enough_water = false;
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+
         sliders[0].value = 0f;
         sliders[1].value = 0f;
         sliders[2].value = 0f;

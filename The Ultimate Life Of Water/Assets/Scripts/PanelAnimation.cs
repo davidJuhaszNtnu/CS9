@@ -54,6 +54,11 @@ public class PanelAnimation : MonoBehaviour
     public void AnimateForward(){
         sin_t = Mathf.Sin(t * Mathf.PI/2f);
         transform.localPosition = start + (end - start) * sin_t;
+        //rotate
+        if(transform.name == "Panel1")
+            transform.Rotate(0f, -1f, 0f, Space.Self);
+        if(transform.name == "Panel3")
+            transform.Rotate(0f, 1f, 0f, Space.Self);
         if(t <= 1f)
             t += dt;
         else{
@@ -68,6 +73,11 @@ public class PanelAnimation : MonoBehaviour
     public void AnimateBackward(){
         sin_t = Mathf.Sin(t * Mathf.PI/2f);
         transform.localPosition = end + (start - end) * sin_t;
+        //rotate
+        if(transform.name == "Panel1")
+            transform.Rotate(0f, 1f, 0f, Space.Self);
+        if(transform.name == "Panel3")
+            transform.Rotate(0f, -1f, 0f, Space.Self);
         if(t <= 1f)
             t += dt;
         else{
