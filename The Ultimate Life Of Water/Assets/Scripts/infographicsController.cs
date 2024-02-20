@@ -10,10 +10,14 @@ public class infographicsController : MonoBehaviour
     public Camera arCamera;
 
     public GameObject[] industry_models;
-    public GameObject appPanel;
+    public GameObject appPanel, markerWarningPanel;
+
+    private bool proceed;
 
     void Start()
     {
+        proceed = true;
+        markerWarningPanel.SetActive(false);
         foreach(GameObject industry_model in industry_models)
             industry_model.SetActive(false);
     }
@@ -25,18 +29,32 @@ public class infographicsController : MonoBehaviour
             if(Physics.Raycast(ray, out hit)){
                 foreach(GameObject industry_model in industry_models){
                     if(hit.collider.tag == industry_model.tag){
-                        industry_model.SetActive(true);
-                        industry_model.transform.position = hit.collider.transform.position;
-                        Vector3 dir = arCamera.transform.forward;
-                        industry_model.transform.rotation = Quaternion.LookRotation(new Vector3(dir.x,0f,dir.z), Vector3.up);
-                        industry_model.transform.GetChild(0).gameObject.SetActive(true);
-                        if(industry_model.tag == "City"){
-                            industry_model.transform.GetChild(1).gameObject.SetActive(false);
+                        foreach(GameObject industry_model2 in industry_models){
+                            if(industry_model2.tag != hit.collider.tag && industry_model2.activeSelf){
+                                appPanel.SetActive(false);
+                                markerWarningPanel.SetActive(true);
+                                proceed = false;
+                            }
+                        }
+                        if(proceed){
+                            industry_model.SetActive(true);
+                            industry_model.transform.position = hit.collider.transform.position;
+                            Vector3 dir = arCamera.transform.forward;
+                            industry_model.transform.rotation = Quaternion.LookRotation(new Vector3(dir.x,0f,dir.z), Vector3.up);
+                            industry_model.transform.GetChild(0).gameObject.SetActive(true);
+                            if(industry_model.tag == "City"){
+                                industry_model.transform.GetChild(1).gameObject.SetActive(false);
+                            }
                         }
                     }
                 }
             }
         }   
+    }
+
+    public void ok_markerWarningPanel_bttn(){
+        markerWarningPanel.SetActive(false);
+        appPanel.SetActive(true);
     }
 
     public void exit_bttn(){
@@ -48,6 +66,7 @@ public class infographicsController : MonoBehaviour
                 industry_model.SetActive(false);
             }
         }
+        proceed = true;
     }
 
     public void explore_bttn(){
@@ -91,6 +110,7 @@ public class infographicsController : MonoBehaviour
                 }
             }
         }
+        proceed = true;
         appPanel.SetActive(true);
     }
 }
