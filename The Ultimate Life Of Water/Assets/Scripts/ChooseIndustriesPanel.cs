@@ -125,7 +125,7 @@ public class ChooseIndustriesPanel : MonoBehaviour
             connectionWarningPanel.SetActive(true);
             if(max_value < 1E-05)
                 connectionWarningPanel.GetComponent<ConnectionWarningPanel>().set_warning("There is not enough waste water to exchange");
-            else connectionWarningPanel.GetComponent<ConnectionWarningPanel>().set_warning("This connection can't be modified");
+            else connectionWarningPanel.GetComponent<ConnectionWarningPanel>().set_warning("This connection can't be modified. Try to remove or modify some of the outgoing connections of the receiver first.");
             chooseIndustriesPanel.SetActive(false);
         }else if(gameController.GetComponent<gameController>().waste[to, from] != 0f){
             // if there is already a connection
