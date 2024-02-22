@@ -659,11 +659,11 @@ public class gameController : MonoBehaviour
 
         //change the color of rectangles to green when achieving the max reduction
         if(clean_water_reduction >= max_reduction_clean)
-            totalIn_material.SetColor("_Color", new Color(0, 255, 0, 255));
-        else totalIn_material.SetColor("_Color", new Color(0, 0, 255, 255));
-        if(waste_water_reduction >= max_reduction_waste)
-            totalOut_material.SetColor("_Color", new Color(0, 255, 0, 255));
-        else totalOut_material.SetColor("_Color", new Color(191, 80, 9, 255));
+            clean_water_pillar.transform.GetComponent<Renderer>().material.color = new Color(0, 1f, 0, 1f);
+        else clean_water_pillar.transform.GetComponent<Renderer>().material.color = new Color(0, 0, 1f, 1f);
+        if(waste_water_reduction >= max_reduction_waste){
+            waste_water_pillar.transform.GetComponent<Renderer>().material.color = new Color(0, 1f, 0, 1f);
+        }else waste_water_pillar.transform.GetComponent<Renderer>().material.color = new Color(0.75f, 0.314f, 0.035f, 1f);
     }
 
     public void check_if_winning(){

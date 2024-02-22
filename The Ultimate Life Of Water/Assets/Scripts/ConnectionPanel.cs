@@ -30,6 +30,10 @@ public class ConnectionPanel : MonoBehaviour
         cards[from_index].transform.SetParent(left.transform, true);
         cards[from_index].transform.localPosition = Vector3.zero;
         cards[from_index].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = gameController.GetComponent<gameController>().industries[from].name;
+        //ultimate technology
+        // if(gameObject.GetComponent<TextMeshProUGUI>().has_technology[from_index]){
+            // cards[from_index].transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = "100 %";
+        // }
         cards[from_index].SetActive(true);
 
         cards[to_index].transform.SetParent(right.transform, true);
