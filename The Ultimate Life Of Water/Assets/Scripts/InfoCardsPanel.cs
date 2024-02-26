@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class InfoCardsPanel : MonoBehaviour
 {
     public GameObject info_cards, mainPanel, infoCardsPanel, gameController, questionInfoCardPanel;
-    public TextMeshProUGUI clean_amount_text, waste_amount_text, title, clean_text, waste_text, ut_info_text;
+    public TextMeshProUGUI clean_amount_text, waste_amount_text, title, clean_text, waste_text;
     public Button ultimate_technology_button, question_button, ok_button;
 
     public int index_showed;
@@ -63,7 +63,7 @@ public class InfoCardsPanel : MonoBehaviour
             clean_text.gameObject.SetActive(false);
             waste_text.gameObject.SetActive(false);
             ultimate_technology_button.gameObject.SetActive(false);
-            ut_info_text.gameObject.SetActive(false);
+            // ut_info_text.gameObject.SetActive(false);
         }
 
         if(gameController.GetComponent<gameController>().has_technology[index_showed])
@@ -77,7 +77,7 @@ public class InfoCardsPanel : MonoBehaviour
         clean_text.gameObject.SetActive(true);
         waste_text.gameObject.SetActive(true);
         ultimate_technology_button.gameObject.SetActive(true);
-        ut_info_text.gameObject.SetActive(true);
+        // ut_info_text.gameObject.SetActive(true);
 
         mainPanel.SetActive(true);
         
