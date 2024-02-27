@@ -15,6 +15,7 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
     private Vector3 place_position;
     public GameObject[] industry_cards;
     bool placed, visible;
+    public bool allow_to_place;
     
     void Start()
     {
@@ -33,6 +34,7 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
 
         placed = false;
         visible = false;
+        allow_to_place = false;
 
         //fade back in the industry cards
         for (int i = 0; i < gameController.GetComponent<gameController>().new_count; i++){
@@ -66,7 +68,7 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
                     placementMarker.SetActive(true);
                     visible = true;
                 }
-                if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended){
+                if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended && allow_to_place){
                     if (!RectTransformUtility.RectangleContainsScreenPoint( confirm_button.GetComponent<RectTransform>(), Input.GetTouch(0).position) && !RectTransformUtility.RectangleContainsScreenPoint(back_button.GetComponent<RectTransform>(), Input.GetTouch(0).position)){
                         gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].SetActive(true);
                         if(gameController.GetComponent<gameController>().new_industry_index == 5)
@@ -92,7 +94,7 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
         //     if (!RectTransformUtility.RectangleContainsScreenPoint( confirm_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(back_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(question_button.GetComponent<RectTransform>(), Input.mousePosition) && !RectTransformUtility.RectangleContainsScreenPoint(ok_button.GetComponent<RectTransform>(), Input.mousePosition)){
         //         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //         if (Physics.Raycast(ray, out hit)){
-        //             if(hit.collider.name=="Floor"){
+        //             if(hit.collider.name=="Floor" && allow_to_place){
         //                 // Debug.Log("hit the floor " + placed);
         //                 gameController.GetComponent<gameController>().industries[gameController.GetComponent<gameController>().new_industry_index].SetActive(true);
         //                 if(gameController.GetComponent<gameController>().new_industry_index == 5)
@@ -168,6 +170,7 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
             }
 
             placed = false;
+            allow_to_place = false;
         }
     }
 
@@ -180,6 +183,7 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
         }
 
         placed = false;
+        allow_to_place = false;
     }
 
     public void question_bttn(){
@@ -188,10 +192,12 @@ public class PlacementOfNewIndustryPanel : MonoBehaviour
         gameController.GetComponent<gameController>().allowed_to_view_info = false;
         confirm_button.interactable = false;
         back_button.interactable = false;
+        allow_to_place = false;
     }
 
     public void ok_questioPanel_bttn(){
         // gameController.GetComponent<gameController>().questionPlacementOfNewIndustryPanel.SetActive(false);
         gameController.GetComponent<gameController>().questionMainPanel.SetActive(false);
+        allow_to_place = true;
     }
 }

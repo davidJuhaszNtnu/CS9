@@ -37,6 +37,7 @@ public class infographicsController : MonoBehaviour
                             }
                         }
                         if(proceed){
+                            appPanel.SetActive(false);
                             industry_model.SetActive(true);
                             industry_model.transform.position = hit.collider.transform.position;
                             Vector3 dir = arCamera.transform.forward;
@@ -67,6 +68,7 @@ public class infographicsController : MonoBehaviour
             }
         }
         proceed = true;
+        appPanel.SetActive(true);
     }
 
     public void explore_bttn(){
@@ -86,7 +88,7 @@ public class infographicsController : MonoBehaviour
                 industry_model.transform.GetChild(1).gameObject.SetActive(false);
             }
         }
-        appPanel.SetActive(true);
+        // appPanel.SetActive(true);
     }
 
     public void restart_bttn(){

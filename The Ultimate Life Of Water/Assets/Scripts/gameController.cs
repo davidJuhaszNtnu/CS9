@@ -355,6 +355,8 @@ public class gameController : MonoBehaviour
     public void ok_questioMainPanel_bttn(){
         allowed_to_view_info = true;
         questionMainPanel.SetActive(false);
+        if(placementOfNewIndustryPanel.activeSelf)
+            placementOfNewIndustryPanel.GetComponent<PlacementOfNewIndustryPanel>().allow_to_place = true;
     }
 
     private void animateArrow(GameObject arrow){

@@ -10,12 +10,13 @@ public class ChooseIndustriesPanel : MonoBehaviour
     public GameObject gameController, chooseIndustriesPanel, connectionPanel, connectionWarningPanel, tutorial;
     public TextMeshProUGUI from_text, to_text;
     public Button confirm_button;
-    public Material material_selected;
+    public Material material_selected, material_flash;
 
     Ray ray;
     RaycastHit hit;
     int from, to;
     bool selected_to;
+    bool allowed_to_choose;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class ChooseIndustriesPanel : MonoBehaviour
 
     public void restart(){
         selected_to = false;
+        allowed_to_choose = true;
     }
 
     // Update is called once per frame
@@ -32,9 +34,9 @@ public class ChooseIndustriesPanel : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             ray = arCamera.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit)){
-                if(!selected_to){
+                if(!selected_to && allowed_to_choose){
                     foreach(GameObject industry in gameController.GetComponent<gameController>().industries){
-                        if(hit.collider.name == industry.name && gameController.GetComponent<gameController>().industries.IndexOf(industry) != from){
+                        if(hit.collider.name == industry.name && gameController.GetComponent<gameController>().industries.IndexOf(industry) != from && gameController.GetComponent<gameController>().industries.IndexOf(industry) != 0){
                             to = gameController.GetComponent<gameController>().industries.IndexOf(industry);
                             if(from > gameController.GetComponent<gameController>().existing_count || to > gameController.GetComponent<gameController>().existing_count){
                                 selected_to = true;
@@ -59,14 +61,18 @@ public class ChooseIndustriesPanel : MonoBehaviour
         GameObject industry = gameController.GetComponent<gameController>().industries[from];
         if(from <= gameController.GetComponent<gameController>().existing_count)
             industry.transform.GetChild(2).gameObject.SetActive(true);
+        else industry.transform.GetChild(2).GetComponent<Renderer>().material = material_selected;
         if(from > gameController.GetComponent<gameController>().existing_count)
             gameController.GetComponent<gameController>().industry_chosen[from - gameController.GetComponent<gameController>().existing_count -1] = true;
         from_text.text = industry.name;
     }
 
     public void back_bttn(){
+        gameController.GetComponent<gameController>().questionChooseIndustriesPanel.SetActive(false);
+        allowed_to_choose = true;
         if(from <= gameController.GetComponent<gameController>().existing_count)
             gameController.GetComponent<gameController>().industries[from].transform.GetChild(2).gameObject.SetActive(false);
+        else gameController.GetComponent<gameController>().industries[from].transform.GetChild(2).GetComponent<Renderer>().material = material_flash;
         if(from > gameController.GetComponent<gameController>().existing_count)
             gameController.GetComponent<gameController>().industry_chosen[from - gameController.GetComponent<gameController>().existing_count -1] = false;
         from_text.text = " ";
@@ -90,8 +96,11 @@ public class ChooseIndustriesPanel : MonoBehaviour
     }
 
     public void back(){
+        gameController.GetComponent<gameController>().questionChooseIndustriesPanel.SetActive(false);
+        allowed_to_choose = true;
         if(from <= gameController.GetComponent<gameController>().existing_count)
             gameController.GetComponent<gameController>().industries[from].transform.GetChild(2).gameObject.SetActive(false);
+        else gameController.GetComponent<gameController>().industries[from].transform.GetChild(2).GetComponent<Renderer>().material = material_flash;
         if(from > gameController.GetComponent<gameController>().existing_count)
             gameController.GetComponent<gameController>().industry_chosen[from - gameController.GetComponent<gameController>().existing_count -1] = false;
         from_text.text = " ";
@@ -149,9 +158,13 @@ public class ChooseIndustriesPanel : MonoBehaviour
 
     public void question_bttn(){
         gameController.GetComponent<gameController>().questionChooseIndustriesPanel.SetActive(true);
+        allowed_to_choose = false;
+        chooseIndustriesPanel.SetActive(false);
     }
 
     public void ok_questionPanel_bttn(){
         gameController.GetComponent<gameController>().questionChooseIndustriesPanel.SetActive(false);
+        allowed_to_choose = true;
+        chooseIndustriesPanel.SetActive(true);
     }
 }
