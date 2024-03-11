@@ -117,6 +117,8 @@ public class ChooseIndustriesPanel : MonoBehaviour
     }
 
     public void confirm_bttn(){
+        if(gameController.GetComponent<gameController>().tutorialOn)
+            tutorial.GetComponent<Tutorial>().industry_bool = false;
         float current_value = gameController.GetComponent<gameController>().waste[from, to];
         float max_value = (gameController.GetComponent<gameController>().out_waste[from] + gameController.GetComponent<gameController>().waste[from, to]);
         float min_value;

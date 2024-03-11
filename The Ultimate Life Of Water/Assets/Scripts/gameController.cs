@@ -28,7 +28,7 @@ public class gameController : MonoBehaviour
     public int existing_count, new_count, industry_count;
 
     public int from_index, to_index;
-    private int selected_index;
+    public int selected_index;
     public bool new_industries_added, all_new_industries_added, tutorialOn;
     public bool[] new_industries_placed;
     bool[] isReceivingEnough;
@@ -282,7 +282,7 @@ public class gameController : MonoBehaviour
         }
 
         //tutorial
-        if(Input.GetMouseButtonDown(0) && tutorial.transform.GetComponent<Tutorial>().industry_secondTime && tutorialOn){
+        if(Input.GetMouseButtonDown(0) && tutorial.transform.GetComponent<Tutorial>().industry_secondTime && tutorialOn && tutorial.GetComponent<Tutorial>().industry_bool){
             ray = arCamera.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit)){
                 if(hit.collider.name == "Utility"){
@@ -350,10 +350,12 @@ public class gameController : MonoBehaviour
     public void question_mainPanel_bttn(){
         allowed_to_view_info = false;
         questionMainPanel.SetActive(true);
+        mainPanel.SetActive(false);
     }
 
     public void ok_questioMainPanel_bttn(){
         allowed_to_view_info = true;
+        mainPanel.SetActive(true);
         questionMainPanel.SetActive(false);
         if(placementOfNewIndustryPanel.activeSelf)
             placementOfNewIndustryPanel.GetComponent<PlacementOfNewIndustryPanel>().allow_to_place = true;

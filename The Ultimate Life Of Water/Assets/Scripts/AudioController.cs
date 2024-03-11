@@ -71,5 +71,119 @@ public class AudioController : MonoBehaviour
     public void text45_bttn(){
         text45.Play();
     }
+    //welcome panel
+    public AudioSource text1;
+    public void text1_bttn(){
+        text1.Play();
+    }
+
+    //----------------------------------escape room-----------------------------
+    //add new industry panel
+    public GameObject centerToCompare;
+    public AudioSource text2, text3, text4;
+    public void text2_3_4_bttn(){
+        if(centerToCompare.GetComponent<SnapToCenter>().indexMin == 0){
+            text2.Play();
+            text3.Stop();
+            text4.Stop();
+        }
+        if(centerToCompare.GetComponent<SnapToCenter>().indexMin == 1){
+            text3.Play();
+            text2.Stop();
+            text4.Stop();
+        }
+        if(centerToCompare.GetComponent<SnapToCenter>().indexMin == 2){
+            text4.Play();
+            text2.Stop();
+            text3.Stop();
+        }
+    }
+    //calibration panel
+    public AudioSource text5;
+    public void text5_bttn(){
+        text5.Play();
+    }
+    //connection warning panel
+    public GameObject connectionWarningPanel;
+    public AudioSource text6, text7, text8;
+    public void text6_7_8_bttn(){
+        if(connectionWarningPanel.GetComponent<ConnectionWarningPanel>().warning_text.text == "There is not enough waste water to exchange")
+            text7.Play();
+        if(connectionWarningPanel.GetComponent<ConnectionWarningPanel>().warning_text.text == "This connection can't be modified. Try to remove or modify some of the outgoing connections of the receiver first.")
+            text6.Play();
+        if(connectionWarningPanel.GetComponent<ConnectionWarningPanel>().warning_text.text == "There is already a connection between these industries")
+            text8.Play();
+    }
+    //infocards panel
+    public GameObject gameController;
+    public AudioSource text9, text10, text11, text12, text2_2, text3_2, text4_2;
+    public void text9_10_11_12_bttn(){
+        if(gameController.GetComponent<gameController>().selected_index == 1)
+            text9.Play();
+        if(gameController.GetComponent<gameController>().selected_index == 2)
+            text10.Play();
+        if(gameController.GetComponent<gameController>().selected_index == 3)
+            text11.Play();
+        if(gameController.GetComponent<gameController>().selected_index == 4)
+            text12.Play();
+        if(gameController.GetComponent<gameController>().selected_index == 5)
+            text2_2.Play();
+        if(gameController.GetComponent<gameController>().selected_index == 6)
+            text3_2.Play();
+        if(gameController.GetComponent<gameController>().selected_index == 7)
+            text4_2.Play();
+    }
+    //new connection animation panel
+    public AudioSource text13;
+    public void text13_bttn(){
+        text13.Play();
+    }
+    //player won panel
+    public AudioSource text14;
+    public void text14_bttn(){
+        text14.Play();
+    }
+    //question main panel
+    public AudioSource text15;
+    public void text15_bttn(){
+        text15.Play();
+    }
+    //question infocard panel
+    public AudioSource text16;
+    public void text16_bttn(){
+        text16.Play();
+    }
+    //question add new industry panel
+    public AudioSource text17;
+    public void text17_bttn(){
+        text17.Play();
+    }
+    //question placement new industry panel
+    public AudioSource text20;
+    public void text20_bttn(){
+        text20.Play();
+    }
+    //question choose industry panel
+    public AudioSource text21;
+    public void text21_bttn(){
+        text21.Play();
+    }
+    //question connection panel
+    public AudioSource text22;
+    public void text22_bttn(){
+        text22.Play();
+    }
+
+    //-------------------------tutorial--------------------
+    //add new industry panel
+    public AudioSource text18;
+    public void text18_bttn(){
+        text18.Play();
+    }
+    //make connection panel
+    public AudioSource text19;
+    public void text19_bttn(){
+        text19.Play();
+    }
 
 }

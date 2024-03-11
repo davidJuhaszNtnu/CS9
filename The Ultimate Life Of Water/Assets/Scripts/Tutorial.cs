@@ -30,7 +30,7 @@ public class Tutorial : MonoBehaviour
         connectionAnimationPanel.SetActive(false);
         interactable = false;
         distributionIndustry_bool = true;
-        industry_bool = true;
+        industry_bool = false;
         industry_secondTime = false;
     }
 
@@ -58,6 +58,7 @@ public class Tutorial : MonoBehaviour
         arrow_ind.transform.localRotation = Quaternion.Euler(0f, 90f, 90f);
         arrow_ind.transform.localScale *= app.GetComponent<App>().scale*2f;
         interactable = true;
+        industry_bool = true;
     }
 
     public void next_industryPanel_bttn(){
