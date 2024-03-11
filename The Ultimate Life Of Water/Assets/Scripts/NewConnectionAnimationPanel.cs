@@ -137,8 +137,8 @@ public class NewConnectionAnimationPanel : MonoBehaviour
         newConectionAnimationPanel.SetActive(false);
         
         if(gameController.GetComponent<gameController>().tutorialOn){
-            tutorial.GetComponent<Tutorial>().connectionAnimationPanel.SetActive(true);
-            tutorial.GetComponent<Tutorial>().connectionAnimationPanel.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "You have created a connection.\n\nYou have achieved a waste water reduction of " + Math.Round(out_to_value * 100, 2).ToString() + 
+            tutorial.GetComponent<Tutorial>().congratulationsPanel.SetActive(true);
+            tutorial.GetComponent<Tutorial>().congratulationsPanel.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "You have created a connection.\n\nYou have achieved a waste water reduction of " + Math.Round(out_to_value * 100, 2).ToString() + 
             "%. This means that so much waste water is now recycled in our symbiosis.\n\nThis is good news for the environment.";
         }
     }

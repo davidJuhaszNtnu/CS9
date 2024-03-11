@@ -116,8 +116,10 @@ public class AudioController : MonoBehaviour
     }
     //infocards panel
     public GameObject gameController;
-    public AudioSource text9, text10, text11, text12, text2_2, text3_2, text4_2;
+    public AudioSource text9, text10, text11, text12, text2_2, text3_2, text4_2, text26_2;
     public void text9_10_11_12_bttn(){
+        if(gameController.GetComponent<gameController>().selected_index == 0)
+            text26_2.Play();
         if(gameController.GetComponent<gameController>().selected_index == 1)
             text9.Play();
         if(gameController.GetComponent<gameController>().selected_index == 2)
@@ -173,6 +175,11 @@ public class AudioController : MonoBehaviour
     public void text22_bttn(){
         text22.Play();
     }
+    //question new connection panel
+    public AudioSource text23;
+    public void text23_bttn(){
+        text23.Play();
+    }
 
     //-------------------------tutorial--------------------
     //add new industry panel
@@ -184,6 +191,46 @@ public class AudioController : MonoBehaviour
     public AudioSource text19;
     public void text19_bttn(){
         text19.Play();
+    }
+    //welcome panel
+    public AudioSource text24;
+    public void text24_bttn(){
+        text24.Play();
+    }
+    //welcome panel 2
+    public AudioSource text25;
+    public void text25_bttn(){
+        text25.Play();
+    }
+    //distribution industry panel
+    public AudioSource text26;
+    public void text26_bttn(){
+        text26.Play();
+    }
+    //industry panel
+    public AudioSource text27;
+    public void text27_bttn(){
+        text27.Play();
+    }
+    //industry panel 2
+    public AudioSource text28;
+    public void text28_bttn(){
+        text28.Play();
+    }
+    //how to play panel
+    public AudioSource text15_2;
+    public void text15_2_bttn(){
+        text15_2.Play();
+    }
+    //make connection panel
+    public AudioSource text29;
+    public void text29_bttn(){
+        text29.Play();
+    }
+    //connection animation panel
+    public AudioSource text30;
+    public void text30_bttn(){
+        text30.Play();
     }
 
 }

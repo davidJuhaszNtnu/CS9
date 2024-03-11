@@ -106,7 +106,7 @@ public class ConnectionPanel : MonoBehaviour
         }
         // Debug.Log("slider value: " + slider.value);
         gameController.GetComponent<gameController>().make_connection(slider.value, from_index + 1, to_index + 1);
-        mainPanel.SetActive(true);
+        // mainPanel.SetActive(true);
         connectionPanel.SetActive(false);
         if(gameController.GetComponent<gameController>().tutorialOn)
             infoCardsPanel.transform.GetComponent<InfoCardsPanel>().ok_button.interactable = true;

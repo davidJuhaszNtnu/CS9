@@ -60,6 +60,7 @@ public class gameController : MonoBehaviour
         // tutorialOn = true;
 
         // tutorialOn = false;
+        add_new_button.interactable = false;
     }
 
     public void start(){
